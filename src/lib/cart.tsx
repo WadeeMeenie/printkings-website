@@ -32,7 +32,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     try { return JSON.parse(localStorage.getItem(KEY) ?? "[]") as CartItem[]; }
     catch { return []; }
   });
-  useEffect(() => localStorage.setItem(KEY, JSON.stringify(items)), [items]);
+  useEffect(() => { try { localStorage.setItem(KEY, JSON.stringify(items)); } catch {} }, [items]);
 
   const value = useMemo<CartContextValue>(() => ({
     items,
