@@ -28,8 +28,8 @@ function Header() {
   const location = useLocation();
   const navigate = useNavigate();
   useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => setSignedIn(!!data.session)).catch(() => setSignedIn(false));
-    const { data } = supabase.auth.onAuthStateChange((_event, session) => setSignedIn(!!session));
+    supabase.auth.getSession().then(({ data }) => setSignedIn(!!data.session && !data.session.user.is_anonymous)).catch(() => setSignedIn(false));
+    const { data } = supabase.auth.onAuthStateChange((_event, session) => setSignedIn(!!session && !session.user.is_anonymous));
     return () => data.subscription.unsubscribe();
   }, []);
   useEffect(() => setOpen(false), [location.pathname]);
