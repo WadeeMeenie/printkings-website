@@ -8,7 +8,7 @@ export function HomePage() {
       <section className="bg-zinc-950 text-white">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 py-24 lg:grid-cols-[1.15fr_.85fr] lg:px-8 lg:py-32">
           <div>
-            <p className="mb-5 text-xs font-black uppercase tracking-[0.28em] text-white/50">Branded outdoor & event solutions</p>
+            <p className="mb-5 text-xs font-black uppercase tracking-[0.28em] text-brand-500">Branded outdoor & event solutions</p>
             <h1 className="max-w-4xl text-5xl font-black leading-[.95] tracking-[-.045em] sm:text-7xl lg:text-8xl">
               MAKE YOUR BRAND IMPOSSIBLE TO MISS.
             </h1>
@@ -16,8 +16,8 @@ export function HomePage() {
               Professional branded setups for events, markets, activations and businesses — from the structure to the finishing touches.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
-              <Link to="/build-your-setup" className="rounded-full bg-white px-7 py-4 text-sm font-black text-black">BUILD YOUR SETUP</Link>
-              <Link to="/shop" className="rounded-full border border-white/30 px-7 py-4 text-sm font-black">SHOP PRODUCTS</Link>
+              <Link to="/build-your-setup" className="rounded-full bg-brand-500 px-7 py-4 text-sm font-black text-white transition hover:bg-brand-600">BUILD YOUR SETUP</Link>
+              <Link to="/shop" className="rounded-full border border-brand-500 px-7 py-4 text-sm font-black text-brand-500 transition hover:bg-brand-500 hover:text-white">SHOP PRODUCTS</Link>
             </div>
           </div>
           <div className="flex items-end">
