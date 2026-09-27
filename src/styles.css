@@ -17,8 +17,16 @@
   background: #f7f5ef;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  --pk-gold: #f0a900;
-  --pk-gold-dark: #d98f00;
+  --pk-gold-primary: #C68E2D;
+  --pk-gold-hover: #B27B22;
+  --pk-black: #000000;
+  --pk-dark-card: #121212;
+  --pk-white: #FFFFFF;
+  --pk-gray-100: #F4F4F5;
+  --pk-gray-200: #E4E4E7;
+  --pk-gray-500: #71717A;
+  --pk-gold: #C68E2D;
+  --pk-gold-dark: #B27B22;
   --pk-paper: #f7f5ef;
   --pk-ink: #151515;
   --pk-muted: #66645f;
