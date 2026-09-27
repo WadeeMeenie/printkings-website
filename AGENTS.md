@@ -19,4 +19,8 @@ Build Print Kings as a production-grade South African outdoor branding and event
 Requirement → plan → implement → build → test → runtime verify → visual QA → security verify → document → commit → update /ai/STATE.md.
 
 ## Current phase
-Planning. No application implementation should begin until the planning gate is approved.
+Frontend implementation.
+
+The initial customer-facing application is being built against the existing Supabase backend. The first functional pass covers Home, Shop, Product Pages, Setup Builder, Packages, Solutions, Cart, authenticated Quotes, Checkout/Yoco handoff, authentication and checkout result states.
+
+External payment secrets and approved product imagery remain environment/content configuration rather than reasons to fake functionality.
