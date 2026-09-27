@@ -174,7 +174,8 @@ export function ShopPage() {
               <Link to={`/shop/${item.category_slug}/${item.variant_slug}`} className="rounded-full bg-black px-4 py-2 text-xs font-black text-white">VIEW PRODUCT</Link>
             </div>
           </article>
-        ))}
+          );
+        })}
       </div>
 
       {hasMore && !loading && visibleItems.length > 0 && (
