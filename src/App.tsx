@@ -18,7 +18,7 @@ function Header() {
   const { count } = useCart();
   const [signedIn,setSignedIn]=useState(false);
   const location=useLocation(); const navigate=useNavigate();
-  useEffect(()=>{supabase.auth.getSession().then(({data})=>setSignedIn(!!data.session));const {data}=supabase.auth.onAuthStateChange((_e,s)=>setSignedIn(!!s));return()=>data.subscription.unsubscribe()},[]);
+  useEffect(()=>{supabase.auth.getSession().then(({data})=>setSignedIn(!!data.session)).catch(()=>setSignedIn(false));const {data}=supabase.auth.onAuthStateChange((_e,s)=>setSignedIn(!!s));return()=>data.subscription.unsubscribe()},[]);
   return <header className="sticky top-0 z-50 border-b border-black/10 bg-white/95 backdrop-blur"><div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
     <Link to="/" className="text-xl font-black tracking-[-.04em]">PRINT KINGS<span className="text-zinc-300">.</span></Link>
     <nav className="hidden items-center gap-7 text-sm font-bold md:flex"><Link to="/build-your-setup">Build Your Setup</Link><Link to="/shop">Shop</Link><Link to="/solutions">Solutions</Link><Link to="/packages">Packages</Link><Link to="/quote">Get a Quote</Link></nav>
