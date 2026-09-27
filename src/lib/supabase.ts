@@ -1,11 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import type { Database } from "./database.types";
 
-const url = import.meta.env.VITE_SUPABASE_URL;
-const publishableKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
-
-if (!url || !publishableKey) {
-  throw new Error("Missing VITE_SUPABASE_URL or VITE_SUPABASE_PUBLISHABLE_KEY");
-}
+const url = import.meta.env.VITE_SUPABASE_URL || "https://placeholder.supabase.co";
+const publishableKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || "missing-publishable-key";
 
 export const supabase = createClient<Database>(url, publishableKey);
