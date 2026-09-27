@@ -20,9 +20,9 @@ function Header() {
   const location=useLocation(); const navigate=useNavigate();
   useEffect(()=>{supabase.auth.getSession().then(({data})=>setSignedIn(!!data.session)).catch(()=>setSignedIn(false));const {data}=supabase.auth.onAuthStateChange((_e,s)=>setSignedIn(!!s));return()=>data.subscription.unsubscribe()},[]);
   return <header className="sticky top-0 z-50 border-b border-black/10 bg-white/95 backdrop-blur"><div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
-    <Link to="/" className="text-xl font-black tracking-[-.04em]">PRINT KINGS<span className="text-zinc-300">.</span></Link>
+    <Link to="/" className="text-xl font-black tracking-[-.04em]">PRINT KINGS<span className="text-brand-500">.</span></Link>
     <nav className="hidden items-center gap-7 text-sm font-bold md:flex"><Link to="/build-your-setup">Build Your Setup</Link><Link to="/shop">Shop</Link><Link to="/solutions">Solutions</Link><Link to="/packages">Packages</Link><Link to="/quote">Get a Quote</Link></nav>
-    <div className="flex items-center gap-2"><Link to="/cart" className="rounded-full border border-black/10 px-4 py-2 text-sm font-bold">Cart {count>0&&<span className="ml-1">({count})</span>}</Link><button onClick={()=>navigate(signedIn?"/account":"/account?next="+encodeURIComponent(location.pathname))} className="hidden rounded-full bg-black px-4 py-2 text-sm font-bold text-white sm:block">{signedIn?"ACCOUNT":"SIGN IN"}</button></div>
+    <div className="flex items-center gap-2"><Link to="/cart" className="rounded-full border border-black/10 px-4 py-2 text-sm font-bold">Cart {count>0&&<span className="ml-1">({count})</span>}</Link><button onClick={()=>navigate(signedIn?"/account":"/account?next="+encodeURIComponent(location.pathname))} className="hidden rounded-full bg-brand-500 px-4 py-2 text-sm font-black text-black transition hover:bg-brand-400 sm:block">{signedIn?"ACCOUNT":"SIGN IN"}</button></div>
   </div></header>;
 }
 function Storefront(){return <div className="min-h-screen bg-white text-zinc-950"><Header/><Routes>
