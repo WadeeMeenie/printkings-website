@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const useCases = ["Markets","Events","Sports","Corporate","Roadshows","Retail","Hospitality","Product Launches"];
+const useCases = [["Markets","market"],["Events","events"],["Sports","sports"],["Corporate","corporate"],["Roadshows","roadshows"],["Retail","retail"],["Hospitality","hospitality"],["Product Launches","product-launch"]];
 
 export function HomePage() {
   return (
@@ -40,8 +40,8 @@ export function HomePage() {
         <p className="text-xs font-black uppercase tracking-[.2em] text-zinc-400">Choose your use case</p>
         <h2 className="mt-3 max-w-2xl text-4xl font-black tracking-tight sm:text-5xl">WHAT ARE YOU BUILDING?</h2>
         <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-black/10 bg-black/10 sm:grid-cols-4">
-          {useCases.map((item) => (
-            <Link key={item} to="/build-your-setup" className="bg-white p-6 transition hover:bg-zinc-100">
+          {useCases.map(([item,slug]) => (
+            <Link key={item} to={"/build-your-setup?type="+slug} className="bg-white p-6 transition hover:bg-zinc-100">
               <span className="text-lg font-bold">{item}</span>
               <span className="mt-8 block text-xs font-bold uppercase tracking-wider text-zinc-400">Build setup →</span>
             </Link>
