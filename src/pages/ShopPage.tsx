@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { supabase } from "../lib/supabase";
 import type { Tables } from "../lib/database.types";
+import { useEffect as useImageEffect, useState as useImageState } from "react";
 
 type CatalogueItem = Tables<"public_catalogue">;
 
@@ -24,6 +25,7 @@ export function ShopPage() {
   const [loadingMore, setLoadingMore] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [imageMap, setImageMap] = useImageState<Record<string,string>>({});
 
   useEffect(() => {
     let active = true;
@@ -77,6 +79,8 @@ export function ShopPage() {
 
     return () => { active = false; };
   }, [category, query, sort]);
+
+  useImageEffect(()=>{(async()=>{const ids=items.map(x=>x.variant_id).filter(Boolean);if(!ids.length){setImageMap({});return}const {data}=await supabase.from("product_images").select("variant_id,external_url,sort_order,is_primary,approved").in("variant_id",ids).eq("approved",true).order("is_primary",{ascending:false}).order("sort_order");const map:Record<string,string>={};for(const x of data??[]){if(x.variant_id&&x.external_url&&!map[x.variant_id])map[x.variant_id]=x.external_url}setImageMap(map)})()},[items]);
 
   const visibleItems = useMemo(() => items, [items]);
 
@@ -159,7 +163,7 @@ export function ShopPage() {
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {visibleItems.map((item) => (
           <article key={item.variant_id} className="group rounded-3xl border border-black/10 p-6 transition hover:-translate-y-1 hover:border-black/25 hover:shadow-lg">
-            <p className="text-xs font-bold uppercase tracking-wider text-zinc-400">{item.category_name}</p>
+            <div className="mb-5 flex h-52 items-center justify-center overflow-hidden rounded-2xl bg-zinc-50">{imageMap[item.variant_id] ? <img src={imageMap[item.variant_id]} alt="" className="h-full w-full object-contain" loading="lazy"/> : <span className="text-[10px] font-black uppercase tracking-widest text-zinc-300">PRINT KINGS</span>}</div><p className="text-xs font-bold uppercase tracking-wider text-zinc-400">{item.category_name}</p>
             <h2 className="mt-3 text-xl font-black">{item.variant_name ?? item.product_name}</h2>
             {item.variant_name && item.product_name !== item.variant_name && <p className="mt-1 text-sm font-medium text-zinc-500">{item.product_name}</p>}
             <p className="mt-3 min-h-12 text-sm leading-6 text-zinc-500">{item.short_description}</p>
