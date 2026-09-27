@@ -20,6 +20,7 @@ const money = (c: number) =>
 export function CheckoutPage() {
   const { items, subtotalCents } = useCart();
   const [session, setSession] = useState<boolean | null>(null);
+  const [guestAuthError, setGuestAuthError] = useState("");
   const [notes, setNotes] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
@@ -35,7 +36,29 @@ export function CheckoutPage() {
   const [prepared, setPrepared] = useState<{ amount_cents: number; redirect_url: string } | null>(null);
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => setSession(!!data.session));
+    let active = true;
+    (async () => {
+      const { data, error } = await supabase.auth.getSession();
+      if (!active) return;
+      if (error) {
+        setGuestAuthError("We could not start your secure checkout session.");
+        setSession(false);
+        return;
+      }
+      if (data.session) {
+        setSession(true);
+        return;
+      }
+
+      const { error: anonymousError } = await supabase.auth.signInAnonymously();
+      if (!active) return;
+      if (anonymousError) {
+        setGuestAuthError("Guest checkout is not enabled on this store yet. Please try again shortly.");
+        setSession(false);
+      } else {
+        setSession(true);
+      }
+    })();
     supabase
       .from("shipping_methods")
       .select("id,slug,name")
@@ -44,6 +67,7 @@ export function CheckoutPage() {
       .then(({ data, error: queryError }) => {
         if (!queryError) setMethods(data ?? []);
       });
+    return () => { active = false; };
   }, []);
 
   if (!items.length)
@@ -62,11 +86,13 @@ export function CheckoutPage() {
     return (
       <main className="auth-gate checkout-gate">
         <p className="eyebrow">Secure checkout</p>
-        <h1 className="mt-3 text-5xl font-black">SIGN IN TO CONTINUE.</h1>
-        <p className="mt-5 text-zinc-500">Your cart stays here while you sign in.</p>
-        <Link to="/account?next=/checkout" className="mt-8 inline-flex pill-dark">
-          SIGN IN
-        </Link>
+        <h1 className="mt-3 text-5xl font-black">GUEST CHECKOUT.</h1>
+        <p className="mt-5 text-zinc-500">No account is required. We’ll keep your cart saved on this device for your next visit.</p>
+        {guestAuthError && <p className="notice-error mt-6">{guestAuthError}</p>}
+        <div className="mt-8 flex flex-wrap gap-3">
+          <button type="button" onClick={() => window.location.reload()} className="pill-dark">TRY AGAIN</button>
+          <Link to="/account?next=/checkout" className="pill-light">ALREADY HAVE AN ACCOUNT? SIGN IN</Link>
+        </div>
       </main>
     );
 
