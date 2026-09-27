@@ -161,7 +161,9 @@ export function ShopPage() {
       )}
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {visibleItems.map((item) => {\n          if (!item.variant_id) return null;\n          return (
+        {visibleItems.map((item) => {
+          if (!item.variant_id) return null;
+          return (
           <article key={item.variant_id} className="group rounded-3xl border border-black/10 p-6 transition hover:-translate-y-1 hover:border-black/25 hover:shadow-lg">
             <div className="mb-5 flex h-52 items-center justify-center overflow-hidden rounded-2xl bg-zinc-50">{imageMap[item.variant_id] ? <img src={imageMap[item.variant_id]} alt="" className="h-full w-full object-contain" loading="lazy"/> : <span className="text-[10px] font-black uppercase tracking-widest text-zinc-300">PRINT KINGS</span>}</div><p className="text-xs font-bold uppercase tracking-wider text-zinc-400">{item.category_name}</p>
             <h2 className="mt-3 text-xl font-black">{item.variant_name ?? item.product_name}</h2>
