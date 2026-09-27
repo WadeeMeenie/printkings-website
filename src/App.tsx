@@ -1,6 +1,7 @@
 import { Link, Route, Routes } from "react-router-dom";
 import { HomePage } from "./pages/HomePage";
 import { ShopPage } from "./pages/ShopPage";
+import { ProductPage } from "./pages/ProductPage";
 import { SetupBuilderPage } from "./pages/SetupBuilderPage";
 import { QuotePage } from "./pages/QuotePage";
 
@@ -27,13 +28,12 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/shop" element={<ShopPage />} />
+        <Route path="/shop/:categorySlug/:variantSlug" element={<ProductPage />} />
         <Route path="/build-your-setup" element={<SetupBuilderPage />} />
         <Route path="/quote" element={<QuotePage />} />
       </Routes>
       <footer className="border-t border-black/10 px-5 py-10 lg:px-8">
-        <div className="mx-auto max-w-7xl text-sm text-zinc-500">
-          © {new Date().getFullYear()} Print Kings. Professional branded displays and event setups.
-        </div>
+        <div className="mx-auto max-w-7xl text-sm text-zinc-500">© {new Date().getFullYear()} Print Kings. Professional branded displays and event setups.</div>
       </footer>
     </div>
   );
