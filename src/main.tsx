@@ -33,9 +33,8 @@ class AppErrorBoundary extends Component<{ children: ReactNode }, { error: Error
   }
 }
 
-const basename = window.location.pathname.startsWith("/printkings-website")
-  ? "/printkings-website"
-  : undefined;
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
+const basename = basePath || undefined;
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
