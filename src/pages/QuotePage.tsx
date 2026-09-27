@@ -1,16 +1,12 @@
-export function QuotePage() {
-  return (
-    <main className="mx-auto max-w-3xl px-5 py-16 lg:px-8">
-      <p className="text-xs font-black uppercase tracking-[.2em] text-zinc-400">Assisted sales</p>
-      <h1 className="mt-3 text-5xl font-black tracking-tight">GET A QUOTE.</h1>
-      <p className="mt-5 text-lg leading-8 text-zinc-500">For bulk, custom, large-format or complete branded setups, we will configure the requirement and price it properly.</p>
-      <form className="mt-12 grid gap-5" onSubmit={(event) => event.preventDefault()}>
-        <input className="rounded-2xl border border-black/10 px-5 py-4 outline-none focus:border-black" placeholder="Your name" />
-        <input className="rounded-2xl border border-black/10 px-5 py-4 outline-none focus:border-black" type="email" placeholder="Email address" />
-        <input className="rounded-2xl border border-black/10 px-5 py-4 outline-none focus:border-black" placeholder="Company / organisation" />
-        <textarea className="min-h-40 rounded-2xl border border-black/10 px-5 py-4 outline-none focus:border-black" placeholder="Tell us what you need" />
-        <button type="submit" className="rounded-full bg-black px-7 py-4 text-sm font-black text-white">REQUEST QUOTE</button>
-      </form>
-    </main>
-  );
+import { FormEvent, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { supabase } from "../lib/supabase";
+import { useCart } from "../lib/cart";
+export function QuotePage(){
+ const {items,subtotalCents}=useCart();const [session,setSession]=useState<boolean|null>(null);const [name,setName]=useState("");const [company,setCompany]=useState("");const [phone,setPhone]=useState("");const [email,setEmail]=useState("");const [notes,setNotes]=useState("");const [busy,setBusy]=useState(false);const [success,setSuccess]=useState("");const [error,setError]=useState("");
+ useEffect(()=>{supabase.auth.getSession().then(({data})=>{setSession(!!data.session);if(data.session?.user.email)setEmail(data.session.user.email)})},[]);
+ async function submit(e:FormEvent){e.preventDefault();setBusy(true);setError("");try{const {data:u}=await supabase.auth.getUser();if(!u.user)throw new Error("Please sign in to submit a quote.");const customerNotes=["Contact: "+name,"Company: "+company,"Phone: "+phone,"Email: "+email,notes].filter(Boolean).join("\n");const {data:q,error:qerr}=await supabase.from("quotes").insert({user_id:u.user.id,status:"DRAFT",currency:"ZAR",subtotal_cents:subtotalCents,tax_cents:0,total_cents:subtotalCents,customer_notes:customerNotes}).select("id,quote_number").single();if(qerr)throw qerr;if(items.length){const rows=items.map(x=>({quote_id:q.id,product_variant_id:x.variantId,description:x.variantName,quantity:x.quantity,unit_price_cents:x.priceCents??0,tax_cents:0,total_cents:(x.priceCents??0)*x.quantity,configuration:x.configuration??{}}));const {error:ierr}=await supabase.from("quote_items").insert(rows);if(ierr)throw ierr}setSuccess(q.quote_number);}catch(e){setError(e instanceof Error?e.message:"Quote submission failed.")}finally{setBusy(false)}}
+ if(session===null)return <main className="page">Checking account…</main>;if(!session)return <main className="page text-center"><p className="eyebrow">Assisted sales</p><h1 className="mt-3 text-5xl font-black">GET A QUOTE.</h1><p className="mt-5 text-zinc-500">Sign in first so your quote can be securely linked to you.</p><Link to="/account?next=/quote" className="mt-8 inline-flex pill-dark">SIGN IN TO REQUEST A QUOTE</Link></main>;
+ if(success)return <main className="page max-w-3xl"><p className="eyebrow">Quote received</p><h1 className="mt-3 text-5xl font-black">WE'VE GOT IT.</h1><p className="mt-5 text-lg leading-8 text-zinc-500">Your request <strong>{success}</strong> has been recorded. Print Kings can now review it.</p><Link to="/shop" className="mt-8 inline-flex pill-dark">CONTINUE SHOPPING</Link></main>;
+ return <main className="page max-w-3xl"><p className="eyebrow">Assisted sales</p><h1 className="mt-3 text-5xl font-black">GET A QUOTE.</h1><p className="mt-5 text-lg leading-8 text-zinc-500">For bulk, custom, large-format or complete branded setups, tell us what you need.</p><form onSubmit={submit} className="mt-10 grid gap-4"><input required value={name} onChange={e=>setName(e.target.value)} placeholder="Your name" className="field"/><input required value={email} onChange={e=>setEmail(e.target.value)} type="email" placeholder="Email address" className="field"/><input value={company} onChange={e=>setCompany(e.target.value)} placeholder="Company / organisation" className="field"/><input value={phone} onChange={e=>setPhone(e.target.value)} placeholder="Phone number" className="field"/><textarea value={notes} onChange={e=>setNotes(e.target.value)} placeholder="Requirements, branding, timing, quantities or anything else…" className="field min-h-40"/>{items.length>0&&<div className="card p-5"><p className="eyebrow">Cart attached</p><p className="mt-2 font-bold">{items.length} product line(s) · {new Intl.NumberFormat("en-ZA",{style:"currency",currency:"ZAR"}).format(subtotalCents/100)} current catalogue value</p></div>}{error&&<p className="notice-error">{error}</p>}<button disabled={busy} className="pill-dark">{busy?"SUBMITTING…":"REQUEST QUOTE"}</button></form></main>;
 }
