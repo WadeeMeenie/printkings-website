@@ -33,7 +33,7 @@ class AppErrorBoundary extends Component<{ children: ReactNode }, { error: Error
   }
 }
 
-const basename = window.location.hostname.endsWith("github.io")
+const basename = window.location.pathname.startsWith("/printkings-website")
   ? "/printkings-website"
   : undefined;
 
