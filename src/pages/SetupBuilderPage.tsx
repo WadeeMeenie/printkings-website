@@ -1,36 +1,15 @@
-import { Link } from "react-router-dom";
-
-export function SetupBuilderPage() {
-  const steps = [
-    ["01","What are you building?","Market, event, sports, corporate, roadshow, retail or another activation."],
-    ["02","How big is the setup?","Start small, build a professional footprint, go large or request something custom."],
-    ["03","Choose your core structure","Gazebo, kiosk, parasol, banner wall, promo counter or another core structure."],
-    ["04","Add visibility","Flags, banners, pop-up displays and banner walls put your brand in view."],
-    ["05","Complete the space","Tables, chairs, tablecloths and counters finish the setup."],
-    ["06","Review your setup","See the configuration and move to cart or request a quote."],
-  ];
-  return (
-    <main className="mx-auto max-w-7xl px-5 py-16 lg:px-8">
-      <div className="max-w-3xl">
-        <p className="text-xs font-black uppercase tracking-[.2em] text-zinc-400">Guided configuration</p>
-        <h1 className="mt-3 text-5xl font-black tracking-tight">BUILD YOUR SETUP.</h1>
-        <p className="mt-5 text-lg leading-8 text-zinc-500">Tell us what you are trying to achieve and the catalogue will guide the configuration.</p>
-      </div>
-      <div className="mt-12 grid gap-3">
-        {steps.map(([number,title,description]) => (
-          <div key={number} className="grid gap-5 rounded-3xl border border-black/10 p-7 sm:grid-cols-[80px_1fr]">
-            <span className="text-sm font-black text-zinc-300">{number}</span>
-            <div>
-              <h2 className="text-2xl font-black">{title}</h2>
-              <p className="mt-2 max-w-2xl leading-7 text-zinc-500">{description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-      <div className="mt-10 flex flex-wrap gap-3">
-        <Link to="/shop" className="rounded-full bg-black px-7 py-4 text-sm font-black text-white">BROWSE PRODUCTS</Link>
-        <Link to="/quote" className="rounded-full border border-black px-7 py-4 text-sm font-black">GET A QUOTE</Link>
-      </div>
-    </main>
-  );
+import { useEffect, useMemo, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
+import { supabase } from "../lib/supabase";
+import { catalogueToCart, useCart } from "../lib/cart";
+type SetupType={id:string;name:string;slug:string;description:string|null};type Step={id:string;setup_type_id:string;name:string;slug:string;description:string|null;step_order:number;required:boolean};type Option={id:string;setup_step_id:string;name:string;slug:string;description:string|null;option_type:string;product_variant_id:string|null;bundle_id:string|null;selection_mode:string;min_quantity:number;max_quantity:number|null;sort_order:number;active:boolean};type Rule={source_option_id:string;target_option_id:string;rule_type:string;message:string|null};
+export function SetupBuilderPage(){
+ const [params]=useSearchParams();const [types,setTypes]=useState<SetupType[]>([]);const [type,setType]=useState<SetupType|null>(null);const [steps,setSteps]=useState<Step[]>([]);const [options,setOptions]=useState<Option[]>([]);const [catalogue,setCatalogue]=useState<Record<string,any>>({});const [rules,setRules]=useState<Rule[]>([]);const [stepIndex,setStepIndex]=useState(0);const [selected,setSelected]=useState<Record<string,string[]>>({});const {add}=useCart();const [loading,setLoading]=useState(true);
+ useEffect(()=>{supabase.from("setup_types").select("id,name,slug,description").eq("active",true).order("sort_order").then(({data})=>{setTypes(data??[]);const wanted=params.get("type");setType((data??[]).find(x=>x.slug===wanted)??null);setLoading(false)})},[params]);
+ useEffect(()=>{if(!type)return;(async()=>{setLoading(true);const {data:s}=await supabase.from("setup_steps").select("id,setup_type_id,name,slug,description,step_order,required").eq("setup_type_id",type.id).eq("active",true).order("step_order");const ss=s??[];setSteps(ss);const {data:o}=await supabase.from("setup_options").select("id,setup_step_id,name,slug,description,option_type,product_variant_id,bundle_id,selection_mode,min_quantity,max_quantity,sort_order,active").in("setup_step_id",ss.map(x=>x.id)).eq("active",true).order("sort_order");const oo=o??[];setOptions(oo);const ids=oo.map(x=>x.product_variant_id).filter(Boolean) as string[];if(ids.length){const {data:p}=await supabase.from("public_catalogue").select("*").in("variant_id",ids);setCatalogue(Object.fromEntries((p??[]).map(x=>[x.variant_id,x])))}const {data:r}=await supabase.from("setup_rules").select("source_option_id,target_option_id,rule_type,message").eq("setup_type_id",type.id).eq("active",true);setRules(r??[]);setLoading(false)})()},[type]);
+ const current=steps[stepIndex];const currentOptions=useMemo(()=>current?options.filter(x=>x.setup_step_id===current.id):[],[current,options]);const selectedIds=Object.values(selected).flat();const recommended=new Set(rules.filter(r=>selectedIds.includes(r.source_option_id)&&r.rule_type.toUpperCase().includes("RECOMM")).map(r=>r.target_option_id));const choose=(o:Option)=>setSelected(s=>{const existing=s[o.setup_step_id]??[];return {...s,[o.setup_step_id]:o.selection_mode==="MULTIPLE"?(existing.includes(o.id)?existing.filter(id=>id!==o.id):[...existing,o.id]):[o.id]}});const selectedOptions=options.filter(o=>selectedIds.includes(o.id));const price=selectedOptions.reduce((sum,o)=>sum+(o.product_variant_id&&catalogue[o.product_variant_id]?.price_cents?catalogue[o.product_variant_id].price_cents:0),0);function finish(){selectedOptions.forEach(o=>{const p=o.product_variant_id?catalogue[o.product_variant_id]:null;if(p)add(catalogueToCart(p),1)})}
+ if(loading&&!types.length)return <main className="page"><p>Loading builder…</p></main>;if(!type)return <main className="page"><p className="eyebrow">Guided configuration</p><h1 className="mt-3 text-5xl font-black">BUILD YOUR SETUP.</h1><p className="mt-5 max-w-2xl text-lg leading-8 text-zinc-500">Choose what you are building and we will guide you through the catalogue.</p><div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{types.map(t=><button key={t.id} onClick={()=>{setType(t);setStepIndex(0);setSelected({})}} className="card p-6 text-left hover:border-black"><h2 className="text-xl font-black">{t.name}</h2><p className="mt-2 text-sm leading-6 text-zinc-500">{t.description??"Build a branded setup around this use case."}</p></button>)}</div></main>;
+ if(!steps.length)return <main className="page"><p>No builder configuration is available for {type.name} yet.</p></main>;const isReview=stepIndex===steps.length-1;
+ return <main className="page"><div className="flex flex-wrap items-end justify-between gap-4"><div><p className="eyebrow">{type.name} setup builder</p><h1 className="mt-3 text-5xl font-black">{current?.name.toUpperCase()}</h1><p className="mt-3 max-w-2xl text-zinc-500">{current?.description}</p></div><Link to="/cart" className="pill-light">CART</Link></div><div className="mt-8 flex gap-1">{steps.map((s,i)=><div key={s.id} className={"h-1.5 flex-1 rounded-full "+(i<=stepIndex?"bg-black":"bg-zinc-200")}/>)}</div>
+ {!isReview?<div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{currentOptions.map(o=>{const p=o.product_variant_id?catalogue[o.product_variant_id]:null;const active=(selected[o.setup_step_id]??[]).includes(o.id);return <button key={o.id} onClick={()=>choose(o)} className={"card p-6 text-left "+(active?"border-black bg-zinc-950 text-white":"hover:border-black")}>{recommended.has(o.id)&&<span className={"text-[10px] font-black uppercase tracking-widest "+(active?"text-white/50":"text-zinc-400")}>Recommended</span>}<h2 className="mt-2 font-black">{o.name}</h2><p className={"mt-2 text-sm leading-6 "+(active?"text-white/60":"text-zinc-500")}>{o.description}</p>{p&&<p className="mt-5 font-black">{p.price_cents===null?"Quote":new Intl.NumberFormat("en-ZA",{style:"currency",currency:"ZAR"}).format(p.price_cents/100)}</p>}</button>})}</div>:<div className="mt-10 grid gap-8 lg:grid-cols-[1fr_360px]"><div className="space-y-3">{selectedOptions.length?selectedOptions.map(o=><div key={o.id} className="card p-5"><p className="text-xs font-bold uppercase tracking-wider text-zinc-400">{steps.find(s=>s.id===o.setup_step_id)?.name}</p><h2 className="mt-1 font-black">{o.name}</h2></div>):<div className="card p-8 text-zinc-500">No products selected yet. Go back and choose components.</div>}</div><aside className="card h-fit p-7"><p className="eyebrow">Estimated catalogue value</p><p className="mt-3 text-3xl font-black">{new Intl.NumberFormat("en-ZA",{style:"currency",currency:"ZAR"}).format(price/100)}</p><p className="mt-3 text-xs leading-5 text-zinc-400">Estimate only. Checkout recalculates authoritative pricing.</p>{selectedOptions.some(o=>o.product_variant_id)&&<button onClick={finish} className="mt-6 w-full pill-dark">ADD SETUP TO CART</button>}<Link to="/quote" className="mt-3 block w-full pill-light text-center">REQUEST A QUOTE</Link></aside></div>}<div className="mt-10 flex justify-between gap-3"><button disabled={stepIndex===0} onClick={()=>setStepIndex(x=>Math.max(0,x-1))} className="pill-light disabled:opacity-30">BACK</button>{!isReview&&<button onClick={()=>setStepIndex(x=>Math.min(steps.length-1,x+1))} className="pill-dark">NEXT</button>}</div></main>;
 }
