@@ -2,52 +2,7 @@ import { useEffect, useState } from "react";
 import type { FormEvent } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { supabase } from "../lib/supabase";
-
-export function AuthPage() {
-  const navigate = useNavigate();
-  const [params] = useSearchParams();
-  const [mode, setMode] = useState<"signin" | "signup">("signin");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const [message, setMessage] = useState("");
-  const [busy, setBusy] = useState(false);
-
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => {
-      if (data.session) navigate(params.get("next") ?? "/");
-    });
-  }, [navigate, params]);
-
-  async function submit(event: FormEvent) {
-    event.preventDefault();
-    setBusy(true); setMessage("");
-    const result = mode === "signin"
-      ? await supabase.auth.signInWithPassword({ email, password })
-      : await supabase.auth.signUp({ email, password, options: { data: { full_name: name } } });
-    setBusy(false);
-    if (result.error) { setMessage(result.error.message); return; }
-    if (mode === "signup" && !result.data.session) {
-      setMessage("Account created. Check your email to confirm your address, then sign in.");
-      return;
-    }
-    navigate(params.get("next") ?? "/");
-  }
-
-  return <main className="mx-auto max-w-lg px-5 py-16 lg:px-8">
-    <p className="eyebrow">Print Kings account</p>
-    <h1 className="mt-3 text-5xl font-black tracking-tight">{mode === "signin" ? "WELCOME BACK." : "CREATE YOUR ACCOUNT."}</h1>
-    <p className="mt-5 leading-7 text-zinc-500">Accounts keep quotes, carts and orders securely linked to you.</p>
-    <form onSubmit={submit} className="mt-10 grid gap-4">
-      {mode === "signup" && <input required value={name} onChange={e => setName(e.target.value)} placeholder="Full name" className="field" />}
-      <input required type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email address" className="field" />
-      <input required minLength={8} type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password (8+ characters)" className="field" />
-      {message && <p className="rounded-2xl bg-zinc-100 p-4 text-sm text-zinc-700">{message}</p>}
-      <button disabled={busy} className="pill-dark">{busy ? "PLEASE WAIT…" : mode === "signin" ? "SIGN IN" : "CREATE ACCOUNT"}</button>
-    </form>
-    <button onClick={() => { setMode(mode === "signin" ? "signup" : "signin"); setMessage(""); }} className="mt-6 text-sm font-bold underline">
-      {mode === "signin" ? "Create an account" : "Already have an account? Sign in"}
-    </button>
-    <Link to="/shop" className="mt-5 block text-sm text-zinc-500">← Continue shopping</Link>
-  </main>;
-}
+export function AuthPage() { const navigate=useNavigate(); const [params]=useSearchParams(); const [mode,setMode]=useState<"signin"|"signup">("signin"); const [email,setEmail]=useState(""); const [password,setPassword]=useState(""); const [name,setName]=useState(""); const [message,setMessage]=useState(""); const [busy,setBusy]=useState(false);
+ useEffect(()=>{supabase.auth.getSession().then(({data})=>{if(data.session)navigate(params.get("next")??"/")})},[navigate,params]);
+ async function submit(e:FormEvent){e.preventDefault();setBusy(true);setMessage("");const result=mode==="signin"?await supabase.auth.signInWithPassword({email,password}):await supabase.auth.signUp({email,password,options:{data:{full_name:name}}});setBusy(false);if(result.error){setMessage("We couldn't sign you in with those details. Check your email and password, then try again.");return}if(mode==="signup"&&!result.data.session){setMessage("Account created. Check your email to confirm your address, then sign in.");return}navigate(params.get("next")??"/")}
+ return <main className="auth-layout"><section className="auth-story"><p className="eyebrow inverse">Print Kings account</p><h1>KEEP YOUR<br /><em>SETUP</em><br />MOVING.</h1><p>Save your cart, keep quotes linked to your business and move from idea to activation with less friction.</p></section><section className="auth-card"><p className="eyebrow">{mode==="signin"?"Welcome back":"Get started"}</p><h2>{mode==="signin"?"SIGN IN.":"CREATE ACCOUNT."}</h2><p className="auth-intro">{mode==="signin"?"Access your saved carts, quotes and orders.":"Create an account to save your setup and request a quote."}</p><form onSubmit={submit} className="form-stack">{mode==="signup"&&<label>Full name<input required value={name} onChange={e=>setName(e.target.value)} className="field" placeholder="Your full name" /></label>}<label>Email address<input required type="email" value={email} onChange={e=>setEmail(e.target.value)} className="field" placeholder="you@company.co.za" /></label><label>Password<input required minLength={8} type="password" value={password} onChange={e=>setPassword(e.target.value)} className="field" placeholder="At least 8 characters" /></label>{message&&<p className="form-notice">{message}</p>}<button disabled={busy} className="button button-dark form-submit">{busy?"PLEASE WAIT…":mode==="signin"?"SIGN IN":"CREATE ACCOUNT"}<span>↗</span></button></form><button className="switch-auth" onClick={()=>{setMode(mode==="signin"?"signup":"signin");setMessage("")}}>{mode==="signin"?"New to Print Kings? Create an account":"Already have an account? Sign in"}</button><Link to="/shop" className="back-link">← Continue shopping</Link></section></main> }

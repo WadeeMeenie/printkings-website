@@ -48,7 +48,7 @@ export function CheckoutPage() {
 
   if (!items.length)
     return (
-      <main className="page text-center">
+      <main className="empty-page checkout-empty">
         <h1 className="text-4xl font-black">YOUR CART IS EMPTY.</h1>
         <Link to="/shop" className="mt-6 inline-block underline font-bold">
           Back to shop
@@ -56,11 +56,11 @@ export function CheckoutPage() {
       </main>
     );
 
-  if (session === null) return <main className="page">Checking account…</main>;
+  if (session === null) return <main className="page"><div className="loading-state"><span className="loader" />Checking account…</div></main>;
 
   if (!session)
     return (
-      <main className="page text-center">
+      <main className="auth-gate checkout-gate">
         <p className="eyebrow">Secure checkout</p>
         <h1 className="mt-3 text-5xl font-black">SIGN IN TO CONTINUE.</h1>
         <p className="mt-5 text-zinc-500">Your cart stays here while you sign in.</p>
@@ -170,12 +170,12 @@ export function CheckoutPage() {
   }
 
   return (
-    <main className="page">
-      <p className="eyebrow">Checkout</p>
-      <h1 className="mt-3 text-5xl font-black">READY TO GO.</h1>
+    <main className="page checkout-page">
+      <div className="page-title-row"><div><p className="eyebrow">Checkout / Secure payment</p>
+      <h1>READY TO GO.</h1></div><span className="checkout-trust">Secure checkout · ZAR</span></div>
 
-      <div className="mt-10 grid gap-8 lg:grid-cols-[1fr_360px]">
-        <form onSubmit={pay} className="card p-7">
+      <div className="checkout-grid">
+        <form onSubmit={pay} className="checkout-form">
           <label className="text-sm font-bold">Delivery method</label>
           <select
             value={shippingMethod}
@@ -235,7 +235,7 @@ export function CheckoutPage() {
           </p>
         </form>
 
-        <aside className="card h-fit p-7">
+        <aside className="checkout-summary">
           <p className="eyebrow">Summary</p>
           {items.map((i) => (
             <div key={i.variantId} className="mt-4 flex justify-between gap-3 text-sm">

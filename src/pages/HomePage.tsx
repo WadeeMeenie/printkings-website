@@ -1,71 +1,15 @@
 import { Link } from "react-router-dom";
 
-const useCases = [["Markets","market"],["Events","events"],["Sports","sports"],["Corporate","corporate"],["Roadshows","roadshows"],["Retail","retail"],["Hospitality","hospitality"],["Product Launches","product-launch"]];
+const useCases = [["Markets", "market", "Stand out in the crowd."], ["Events", "events", "Own the room."], ["Sports & outdoor", "sports", "Show up together."], ["Corporate", "corporate", "Make the launch count."], ["Roadshows", "roadshows", "Take your brand further."], ["Retail", "retail", "Be impossible to miss."]];
+const principles = [["01", "Get noticed", "High-impact structures and displays that make your brand the first thing people see."], ["02", "Build your setup", "Start with one product or configure a complete presence around the way you show up."], ["03", "Make it yours", "Your brand, your colours, your space. Add the finishing details that make it unmistakably yours."], ["04", "Show up professionally", "Reliable, considered equipment for the moments where your brand has to perform."]];
 
 export function HomePage() {
-  return (
-    <main>
-      <section className="bg-zinc-950 text-white">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-24 lg:grid-cols-[1.15fr_.85fr] lg:px-8 lg:py-32">
-          <div>
-            <p className="mb-5 text-xs font-black uppercase tracking-[0.28em] text-brand-500">Branded outdoor & event solutions</p>
-            <h1 className="max-w-4xl text-5xl font-black leading-[.95] tracking-[-.045em] sm:text-7xl lg:text-8xl">
-              MAKE YOUR BRAND IMPOSSIBLE TO MISS.
-            </h1>
-            <p className="mt-8 max-w-2xl text-lg leading-8 text-white/70">
-              Professional branded setups for events, markets, activations and businesses — from the structure to the finishing touches.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-3">
-              <Link to="/build-your-setup" className="rounded-full bg-brand-500 px-7 py-4 text-sm font-black text-white transition hover:bg-brand-600">BUILD YOUR SETUP</Link>
-              <Link to="/shop" className="rounded-full border border-brand-500 px-7 py-4 text-sm font-black text-brand-500 transition hover:bg-brand-500 hover:text-white">SHOP PRODUCTS</Link>
-            </div>
-          </div>
-          <div className="flex items-end">
-            <div className="w-full rounded-[2rem] border border-white/10 bg-white/5 p-8">
-              <p className="text-xs font-black uppercase tracking-[.2em] text-white/40">The Print Kings system</p>
-              <div className="mt-8 grid gap-4">
-                {["Structure","Visibility","Space","Branding"].map((item, index) => (
-                  <div key={item} className="flex items-center justify-between border-b border-white/10 pb-4">
-                    <span className="text-lg font-bold">{item}</span>
-                    <span className="text-sm text-white/40">0{index + 1}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8">
-        <p className="text-xs font-black uppercase tracking-[.2em] text-zinc-400">Choose your use case</p>
-        <h2 className="mt-3 max-w-2xl text-4xl font-black tracking-tight sm:text-5xl">WHAT ARE YOU BUILDING?</h2>
-        <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-black/10 bg-black/10 sm:grid-cols-4">
-          {useCases.map(([item,slug]) => (
-            <Link key={item} to={"/build-your-setup?type="+slug} className="bg-white p-6 transition hover:bg-zinc-100">
-              <span className="text-lg font-bold">{item}</span>
-              <span className="mt-8 block text-xs font-bold uppercase tracking-wider text-zinc-400">Build setup →</span>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-zinc-100">
-        <div className="mx-auto grid max-w-7xl gap-8 px-5 py-20 lg:grid-cols-3 lg:px-8">
-          <div>
-            <p className="text-xs font-black uppercase tracking-[.2em] text-zinc-400">Start here</p>
-            <h2 className="mt-3 text-4xl font-black tracking-tight">BUILD THE COMPLETE SETUP.</h2>
-          </div>
-          <div className="lg:col-span-2 grid gap-4 sm:grid-cols-3">
-            {["Starter","Professional","Signature"].map((item) => (
-              <Link key={item} to="/build-your-setup" className="rounded-3xl bg-white p-7 shadow-sm transition hover:-translate-y-1">
-                <p className="text-xs font-black uppercase tracking-wider text-zinc-400">Setup</p>
-                <h3 className="mt-2 text-2xl font-black">{item}</h3>
-                <p className="mt-8 text-sm font-semibold text-zinc-500">Configure the right combination for your space.</p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-    </main>
-  );
+  return <main>
+    <section className="hero-section"><div className="hero-grid"><div className="hero-copy"><p className="eyebrow inverse">Outdoor branding • Events • Activations</p><h1>MAKE YOUR BRAND <em>IMPOSSIBLE</em> TO MISS.</h1><p className="hero-lede">Professional branded gazebos, flags, banners, furniture and promotional displays built to put your brand in the spotlight.</p><div className="hero-actions"><Link to="/shop" className="button button-gold">Shop products <span>↗</span></Link><Link to="/build-your-setup" className="button button-outline">Build your setup <span>↗</span></Link></div><div className="hero-proof"><span className="proof-line" /><span>From first impression<br />to full activation.</span></div></div><div className="hero-visual" aria-label="Abstract branded outdoor setup illustration"><div className="visual-glow" /><div className="tent-roof"><span>PRINT<br />KINGS</span></div><div className="tent-leg left" /><div className="tent-leg right" /><div className="banner-flag"><span>PK</span></div><div className="visual-caption"><span>01 / 04</span><strong>BRAND<br />THE SPACE.</strong></div></div></div><div className="hero-scroll"><span>Scroll to explore</span><span className="scroll-line" /></div></section>
+    <section className="intro-section section-pad"><div className="intro-kicker"><span>01</span><span>The Print Kings system</span></div><div className="intro-content"><h2>BE SEEN.<br /><span>BE REMEMBERED.</span></h2><div><p className="section-lede">The right outdoor setup turns a blank space into a brand experience. Print Kings gives you the products, guidance and confidence to make that happen.</p><Link to="/solutions" className="text-link">Explore solutions <span>↗</span></Link></div></div></section>
+    <section className="story-section section-pad"><div className="story-aside"><p className="eyebrow">A better way to show up</p><h2>FROM <span>BLANK SPACE</span><br />TO BRAND PRESENCE.</h2></div><div className="principles">{principles.map(([number, title, copy]) => <article className="principle" key={number}><span className="principle-number">{number}</span><div><h3>{title}</h3><p>{copy}</p></div><span className="principle-arrow">↗</span></article>)}</div></section>
+    <section className="category-section section-pad"><div className="section-heading"><div><p className="eyebrow">02 / Choose your direction</p><h2>WHAT ARE YOU<br /><span>BUILDING?</span></h2></div><Link to="/shop" className="text-link">See all products <span>↗</span></Link></div><div className="category-grid">{useCases.map(([name, slug, copy], index) => <Link key={slug} to={`/build-your-setup?type=${slug}`} className={`category-tile tile-${index + 1}`}><span className="tile-index">0{index + 1}</span><div><h3>{name}</h3><p>{copy}</p></div><span className="tile-arrow">↗</span></Link>)}</div></section>
+    <section className="setup-banner"><div><p className="eyebrow inverse">03 / Your next move</p><h2>BUILD THE<br /><em>COMPLETE SETUP.</em></h2><p>Choose a base, add your products, make it yours. Our guided builder helps you get to the right setup faster.</p><Link to="/build-your-setup" className="button button-gold">Start building <span>↗</span></Link></div><div className="setup-mark"><span>PK</span><small>BUILT<br />FOR<br />IMPACT</small></div></section>
+    <section className="conversion-section section-pad"><div className="conversion-card"><p className="eyebrow">Ready when you are</p><h2>LET'S MAKE<br /><span>YOUR BRAND LOUDER.</span></h2><p>Tell us what you're building and we'll help you bring the right setup together.</p><div className="hero-actions"><Link to="/quote" className="button button-dark">Request a quote <span>↗</span></Link><Link to="/shop" className="text-link">Shop the catalogue <span>↗</span></Link></div></div></section>
+  </main>;
 }
