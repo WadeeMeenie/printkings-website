@@ -33,7 +33,7 @@ export function CheckoutPage() {
     province: "",
     postal_code: "",
   });
-  const [prepared, setPrepared] = useState<{ amount_cents: number; redirect_url: string } | null>(null);
+  const [prepared, setPrepared] = useState<{ amount_cents: number; cart_id: string; shipping_address_id: string | null } | null>(null);
 
   useEffect(() => {
     let active = true;
@@ -179,17 +179,51 @@ export function CheckoutPage() {
           customer_notes: notes,
           shipping_method_slug: shippingMethod,
           shipping_address_id: shippingAddressId,
+          preview_only: true,
         },
       });
 
       if (fnError) throw fnError;
-      if (!checkout?.redirect_url || typeof checkout.amount_cents !== "number") {
-        throw new Error("Payment checkout is not available yet. Yoco production configuration may still be pending.");
+      if (!checkout || typeof checkout.amount_cents !== "number") {
+        throw new Error(checkout?.error || "We could not calculate the final total.");
       }
 
-      setPrepared({ amount_cents: checkout.amount_cents, redirect_url: checkout.redirect_url });
+      setPrepared({
+        amount_cents: checkout.amount_cents,
+        cart_id: cartId!,
+        shipping_address_id: shippingAddressId,
+      });
     } catch (e) {
       setError(e instanceof Error ? e.message : "Checkout failed.");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function startPayment() {
+    if (!prepared) return;
+
+    setBusy(true);
+    setError("");
+
+    try {
+      const { data: checkout, error: fnError } = await supabase.functions.invoke("create-yoco-checkout", {
+        body: {
+          cart_id: prepared.cart_id,
+          shipping_method_slug: shippingMethod,
+          shipping_address_id: prepared.shipping_address_id,
+          customer_notes: notes,
+        },
+      });
+
+      if (fnError) throw fnError;
+      if (!checkout?.redirect_url) {
+        throw new Error(checkout?.error || "Payment checkout could not be created.");
+      }
+
+      window.location.assign(checkout.redirect_url);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Payment checkout failed.");
     } finally {
       setBusy(false);
     }
@@ -245,10 +279,11 @@ export function CheckoutPage() {
           {prepared ? (
             <button
               type="button"
-              onClick={() => window.location.assign(prepared.redirect_url)}
+              onClick={startPayment}
+              disabled={busy}
               className="mt-6 w-full pill-dark"
             >
-              PAY {money(prepared.amount_cents)} WITH YOCO
+              {busy ? "OPENING SECURE PAYMENT…" : `PAY ${money(prepared.amount_cents)} WITH YOCO`}
             </button>
           ) : (
             <button disabled={busy} className="mt-6 w-full pill-dark">
@@ -282,7 +317,7 @@ export function CheckoutPage() {
           <p className="mt-3 text-xs leading-5 text-zinc-400">
             {prepared
               ? "Final total validated. Continue to Yoco when you are ready."
-              : "Shipping, tax and discounts are recalculated by the server before payment."}
+              : "Final total is recalculated by the server before payment."}
           </p>
         </aside>
       </div>
