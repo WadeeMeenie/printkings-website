@@ -1,7 +1,7 @@
 # Print Kings — AI State
 
 ## Current phase
-PHASE 1 — FRONTEND FOUNDATION
+PHASE 1 — FULL CUSTOMER-FACING FRONTEND PASS
 
 ## Repository
 WadeeMeenie/printkings-website
@@ -45,8 +45,13 @@ Implemented:
 - Supabase client using browser-safe publishable key
 - Homepage foundation
 - Shop page connected to `public.public_catalogue`
-- Setup Builder journey shell
-- Quote request shell
+- Database-driven Setup Builder interaction
+- Authenticated quote persistence
+- Local persistent cart with server sync at checkout
+- Checkout/Yoco handoff and payment result states
+- Authentication/customer account entry
+- Packages and Solutions pages
+- Product image read pipeline for approved external imagery
 - Responsive base styling
 - Environment template
 
@@ -64,14 +69,10 @@ Client-side prices are advisory. Checkout remains server-authoritative.
 - Frontend still needs full product detail, cart, authentication, checkout, customer orders, real Setup Builder interactions and admin UI.
 
 ## Next gate
-Build the real customer catalogue experience:
-1. Category navigation/filtering
-2. Product detail pages
-3. Product image pipeline
-4. Cart state
-5. Setup Builder database-driven interaction
-6. Quote submission persistence
-7. Authentication/customer account
-8. Checkout/Yoco integration
+1. Run the production build through the new GitHub Actions workflow and fix any TypeScript/build failures.
+2. Perform browser runtime QA for Home → Shop → Product → Cart and Home → Builder → Cart/Quote.
+3. Configure Yoco production secrets/domain and run a test-mode payment E2E.
+4. Add approved real product imagery; the live database currently has zero approved product images.
+5. Add customer order/account history and admin operations after the core storefront is runtime-verified.
 
 Do not skip runtime verification as features are added.
