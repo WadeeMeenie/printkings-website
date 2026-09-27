@@ -28,6 +28,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24
+          cache: npm
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
 
       - name: Install dependencies
         run: npm install
@@ -35,8 +39,13 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: SPA fallback
-        run: cp dist/index.html dist/404.html
+      - name: Verify production artifact
+        run: |
+          test -f dist/index.html
+          test -f dist/404.html || cp dist/index.html dist/404.html
+          grep -q "/printkings-website/" dist/index.html
+          echo "Production artifact verified:"
+          find dist -maxdepth 2 -type f | sort | head -100
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
@@ -53,3 +62,6 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Report deployment URL
+        run: echo "GitHub Pages URL: ${{ steps.deployment.outputs.page_url }}"
