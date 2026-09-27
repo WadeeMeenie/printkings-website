@@ -128,7 +128,7 @@ export function ShopPage() {
         <p className="mt-5 text-lg leading-8 text-zinc-500">Browse the real Print Kings catalogue. Supplier costs and internal SKUs stay behind the scenes.</p>
       </div>
 
-      <section className="mt-10 rounded-3xl border border-black/10 bg-zinc-50 p-4">
+      <section className="mt-10 rounded-3xl border border-black/10 bg-white p-4 shadow-sm">
         <div className="flex flex-col gap-3 lg:flex-row">
           <label className="flex-1">
             <span className="sr-only">Search products</span>
@@ -145,8 +145,8 @@ export function ShopPage() {
           </select>
         </div>
         <div className="mt-3 flex gap-2 overflow-x-auto pb-1">
-          <button onClick={() => updateFilter("category", "all")} className={`whitespace-nowrap rounded-full px-4 py-2 text-xs font-bold ${category === "all" ? "bg-black text-white" : "bg-white border border-black/10"}`}>All</button>
-          {categories.map((item) => <button key={item.slug} onClick={() => updateFilter("category", item.slug)} className={`whitespace-nowrap rounded-full px-4 py-2 text-xs font-bold ${category === item.slug ? "bg-black text-white" : "bg-white border border-black/10"}`}>{item.name}</button>)}
+          <button onClick={() => updateFilter("category", "all")} className={`whitespace-nowrap rounded-full px-4 py-2 text-xs font-bold transition ${category === "all" ? "bg-brand-500 text-white" : "border border-black/10 bg-white hover:border-brand-500 hover:text-brand-600"}`}>All</button>
+          {categories.map((item) => <button key={item.slug} onClick={() => updateFilter("category", item.slug)} className={`whitespace-nowrap rounded-full px-4 py-2 text-xs font-bold transition ${category === item.slug ? "bg-brand-500 text-white" : "border border-black/10 bg-white hover:border-brand-500 hover:text-brand-600"}`}>{item.name}</button>)}
         </div>
       </section>
 
@@ -171,7 +171,7 @@ export function ShopPage() {
             <p className="mt-3 min-h-12 text-sm leading-6 text-zinc-500">{item.short_description}</p>
             <div className="mt-7 flex items-end justify-between gap-4">
               <div><p className="text-xs text-zinc-400">From</p><p className="text-xl font-black">{money(item.price_cents)}</p></div>
-              <Link to={`/shop/${item.category_slug}/${item.variant_slug}`} className="rounded-full bg-black px-4 py-2 text-xs font-black text-white">VIEW PRODUCT</Link>
+              <Link to={`/shop/${item.category_slug}/${item.variant_slug}`} className="rounded-full bg-black px-4 py-2 text-xs font-black text-white transition hover:bg-brand-500 hover:text-white">VIEW PRODUCT</Link>
             </div>
           </article>
           );
