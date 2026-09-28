@@ -45,7 +45,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     }),
     remove: variantId => setItems(current => current.filter(x => x.variantId !== variantId)),
     setQuantity: (variantId, quantity) => setItems(current => quantity <= 0 ? current.filter(x => x.variantId !== variantId) : current.map(x => x.variantId === variantId ? { ...x, quantity } : x)),
-    clear: () => setItems([])
+    clear: () => { setItems([]); try { localStorage.removeItem(KEY); } catch {} }
   }), [items]);
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
