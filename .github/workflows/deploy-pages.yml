@@ -1,4 +1,4 @@
-name: Deploy Print Kings to GitHub Pages
+name: Deploy Print Kings to GitHub Pages\n# Force deployment workflow to run for every main-branch storefront change
 
 on:
   push:
