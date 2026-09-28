@@ -93,7 +93,9 @@ export function CheckoutPage() {
     finally { setBusy(false); }
   }
 
-  return <main className="page checkout-page">
+  return <>
+    {busy && totals && <div className="checkout-processing" role="status" aria-live="polite"><div className="checkout-processing-card"><span className="loader" /><p className="eyebrow">Secure payment</p><h2>SUBMITTING YOUR ORDER.</h2><p>We’re creating your secure Yoco payment and sending you to the payment page. Please don’t close this window.</p></div></div>}
+    <main className="page checkout-page">
     <div className="page-title-row"><div><p className="eyebrow">Checkout / Secure payment</p><h1>READY TO GO.</h1></div><span className="checkout-trust">Secure checkout · ZAR</span></div>
     <div className="checkout-grid">
       <form onSubmit={pay} className="checkout-form">
@@ -110,5 +112,6 @@ export function CheckoutPage() {
         <p className="mt-4 text-xs leading-5 text-zinc-400">{totals ? "Final total validated by the server. Yoco payment is created only after you continue." : "Calculate the final total to see VAT, delivery and discounts."}</p>
       </aside>
     </div>
-  </main>;
+    </main>
+  </>;
 }
