@@ -31,7 +31,7 @@ export function ProductPage(){
         supabase.from("product_images").select("variant_id,storage_path,external_url").or("approved.eq.true,external_url.not.is.null")
       ]);
       const counts=new Map<string,number>();for(const x of allImgs??[]){if(x.storage_path)counts.set(x.storage_path,(counts.get(x.storage_path)??0)+1)}
-      const uniqueImgs=(imgs??[]).filter(x=>(x.storage_path||x.external_url)&&(!x.storage_path||counts.get(x.storage_path)===1)&&resolveMappedProductImage(x.storage_path,x.external_url));
+      const uniqueImgs=(imgs??[]).filter(x=>(x.storage_path||x.external_url)&&resolveMappedProductImage(x.storage_path,x.external_url));
       if(alive){const seenFamilies=new Set<string>();const uniqueRelated=(rel??[]).filter(candidate=>{const key=productFamilyKey(candidate.product_name??candidate.variant_name);if(key===productFamilyKey(data.product_name??data.variant_name)||seenFamilies.has(key))return false;seenFamilies.add(key);return true}).slice(0,4);setFamilyItems(siblings.sort(compareCatalogueVariants));setImages(uniqueImgs);setRelated(uniqueRelated);setLoading(false)}
     })();
     return()=>{alive=false}
