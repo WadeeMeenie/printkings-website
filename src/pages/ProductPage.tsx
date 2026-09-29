@@ -25,7 +25,7 @@ export function ProductPage(){
       setItem(data);
       const {data:all}=await supabase.from("public_catalogue").select("*").eq("category_active",true).eq("category_slug",data.category_slug??categorySlug);
       const siblings=(all??[]).filter(x=>productFamilyKey(x.product_name??x.variant_name)===productFamilyKey(data.product_name??data.variant_name));
-      const [{data:imgs},{data:rel},{data:allImgs}]=await Promise.all([
+      const [{data:imgs},{data:rel}]=await Promise.all([
         supabase.from("product_images").select("id,storage_path,external_url,alt_text,is_primary,sort_order").eq("variant_id",data.variant_id as string).eq("approved",true).order("is_primary",{ascending:false}).order("sort_order"),
         supabase.from("public_catalogue").select("*").eq("category_active",true).eq("category_slug",data.category_slug??categorySlug).neq("variant_id",data.variant_id as string).limit(4),
         supabase.from("product_images").select("variant_id,storage_path,external_url").or("approved.eq.true,external_url.not.is.null")
