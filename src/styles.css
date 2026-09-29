@@ -29,3 +29,18 @@
 @media (max-width:560px){.page{padding:32px 7vw}.checkout-page .page-title-row h1{font-size:52px}.checkout-trust{display:block;margin-top:12px}.purchase-box{padding:22px}.page-hero{padding:25px 0 45px}.shop-hero{padding:24px 0 30px}.shop-hero h1{font-size:46px}.shop-hero>p{font-size:14px;margin-top:18px}.catalogue-controls{padding:12px;border-radius:14px}.select-group{gap:8px;margin-top:10px}.select-group select{padding:11px 9px}.filter-pills{margin-top:12px}.product-grid,.solution-grid,.package-grid,.builder-options,.builder-type-grid{grid-template-columns:1fr}.product-image{height:250px}.related-grid{grid-template-columns:1fr 1fr}.form-grid{grid-template-columns:1fr}.cart-item{grid-template-columns:70px 1fr;gap:12px}.cart-image{width:70px;height:70px}.line-total{grid-column:2}.quantity-row{margin-top:14px}.cart-layout{margin-top:30px}.quote-form{padding:22px}.quote-steps{margin-top:30px}.builder-header{display:block}.cart-chip{display:inline-block;margin-top:25px}.stepper small{display:none}.stepper button{justify-content:center}.review-layout{gap:20px}.status-actions{align-items:stretch;flex-direction:column}.status-actions .text-link{align-self:flex-start}.announcement{font-size:8px}.footer-bottom{margin-top:35px}}
 .wordmark img{display:block;width:168px;height:auto;max-height:43px;object-fit:contain;object-position:left center}.footer-mark img{width:195px;max-height:48px}.reference-badge{position:absolute;left:12px;bottom:12px;padding:6px 8px;background:rgba(17,17,15,.78);color:#fff;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.gallery-placeholder{position:relative;overflow:hidden}.gallery-placeholder img{width:100%;height:100%;min-height:580px;object-fit:cover;opacity:.86}.gallery-placeholder small{position:absolute;left:18px;bottom:18px;z-index:1;padding:8px 10px;background:rgba(17,17,15,.78);color:#fff;letter-spacing:.08em}.option-image{height:95px;margin:-20px -20px 16px;overflow:hidden;background:#ebe8df}.option-image img{width:100%;height:100%;object-fit:cover}.quote-visual{height:210px;margin-top:35px;overflow:hidden}.quote-visual img{width:100%;height:100%;object-fit:cover}.package-hero{display:grid;grid-template-columns:1fr .75fr;gap:50px;align-items:end;max-width:none}.package-hero>img{width:100%;height:260px;object-fit:cover}@media(max-width:900px){.wordmark img{width:150px}.package-hero{grid-template-columns:1fr}.package-hero>img{height:220px}.quote-visual{height:190px}}
 .product-image-missing{display:grid;place-items:center;width:100%;height:100%;background:linear-gradient(135deg,#ebe8df,#d8d3c7);color:#9b978e;font-size:48px;font-weight:950;letter-spacing:-.08em}.product-image img{width:100%;height:100%;object-fit:cover}.cart-image .product-image-missing{font-size:24px}.gallery-placeholder .product-image-missing{min-height:580px}
+
+/* Production image/logo correction: preserve full product artwork on narrow screens and prevent logo asset caching. */
+.product-image img,
+.gallery-grid img,
+.cart-image img,
+.product-option-image img { object-fit: contain !important; object-position: center; }
+.product-image { background: #f2f0e9; }
+.gallery-grid img { background: #f2f0e9; }
+@media (max-width: 560px) {
+  .product-image { height: 260px; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-grid img { height: 300px; }
+  .wordmark img { width: 142px; max-width: 48vw; }
+  .footer-mark img { width: min(195px, 70vw); }
+}
