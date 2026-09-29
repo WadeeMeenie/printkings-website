@@ -3,7 +3,7 @@ import { Link,useSearchParams } from "react-router-dom";
 import { supabase } from "../lib/supabase";
 import type { Tables } from "../lib/database.types";
 import { productImageAlt,resolveMappedProductImage } from "../lib/productImages";
-import { groupCatalogueVariants,productFamilyName } from "../lib/productFamilies";
+import { compareCatalogueVariants,groupCatalogueVariants,productFamilyName } from "../lib/productFamilies";
 
 type CatalogueItem=Tables<"public_catalogue">;
 const PAGE_SIZE=24;
@@ -35,7 +35,7 @@ export function ShopPage(){
 
   const groups=useMemo(()=>{
     const grouped=groupCatalogueVariants(items).map(variants=>{
-      const sorted=[...variants].sort((a,b)=>(a.price_cents??Number.MAX_SAFE_INTEGER)-(b.price_cents??Number.MAX_SAFE_INTEGER));
+      const sorted=[...variants].sort(compareCatalogueVariants);
       return {variants,primary:sorted[0]};
     });
     if(sort==="price-low") return grouped.sort((a,b)=>(a.primary.price_cents??Number.MAX_SAFE_INTEGER)-(b.primary.price_cents??Number.MAX_SAFE_INTEGER));
