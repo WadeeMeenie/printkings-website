@@ -5,15 +5,11 @@ export type ProductImageInput = {
   categorySlug?: string | null;
 };
 
-/**
- * Resolves only curated, repository-hosted product imagery. Supplier reference URLs
- * are deliberately not rendered by the storefront; approved assets are copied into
- * public/images/products and mapped through product_images.storage_path.
- */
-export function resolveMappedProductImage(storagePath?: string | null): string | null {
+export function resolveMappedProductImage(storagePath?: string | null, externalUrl?: string | null): string | null {
   const normalized = (storagePath ?? "").replace(/^\/+/, "");
-  if (!normalized.startsWith("images/products/")) return null;
-  return `${import.meta.env.BASE_URL}${normalized}`;
+  if (normalized.startsWith("images/products/")) return import.meta.env.BASE_URL + normalized;
+  if (externalUrl && externalUrl.startsWith("https://displaymania.co.za/")) return externalUrl;
+  return null;
 }
 
 export function productImageAlt(input: ProductImageInput): string {
