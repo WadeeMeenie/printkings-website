@@ -5,33 +5,24 @@ export type ProductImageInput = {
   categorySlug?: string | null;
 };
 
-function localProductPhotoFromExternalUrl(externalUrl?: string | null): string | null {
-  if (!externalUrl) return null;
-  try {
-    const url = new URL(externalUrl);
-    if (url.hostname !== "www.dropbox.com" && url.hostname !== "dropbox.com") return null;
-    const rawName = url.pathname.split("/").filter(Boolean).pop();
-    if (!rawName) return null;
-
-    const sourceName = decodeURIComponent(rawName);
-    const filename = sourceName
-      .replace(/-(\d+)(\.[^.]+)$/i, " - $1$2")
-      .replace(/-/g, " ")
-      .replace(/\s+(\d+)(\.[^.]+)$/i, " - $1$2")
-      .replace(/\bA Frame\b/gi, "A-Frame");
-    return import.meta.env.BASE_URL + "images/products/" + encodeURIComponent(filename);
-  } catch {
-    return null;
-  }
-}
-
-export function resolveMappedProductImage(storagePath?: string | null, externalUrl?: string | null): string | null {
+/**
+ * Print Kings has one canonical storefront image source:
+ * committed assets under public/images/products.
+ *
+ * externalUrl remains accepted for backwards-compatible callers, but is
+ * deliberately ignored so supplier/Dropbox URLs can never become a second
+ * storefront source of truth.
+ */
+export function resolveMappedProductImage(
+  storagePath?: string | null,
+  _externalUrl?: string | null,
+): string | null {
   const normalized = (storagePath ?? "").replace(/^\/+/, "");
-  if (normalized.startsWith("images/products/")) return import.meta.env.BASE_URL + normalized.split("/").map(encodeURIComponent).join("/");
-  const localDropboxPhoto = localProductPhotoFromExternalUrl(externalUrl);
-  if (localDropboxPhoto) return localDropboxPhoto;
-  if (externalUrl && externalUrl.startsWith("https://displaymania.co.za/")) return externalUrl;
-  return null;
+  if (!normalized.startsWith("images/products/")) return null;
+  return (
+    import.meta.env.BASE_URL +
+    normalized.split("/").map(encodeURIComponent).join("/")
+  );
 }
 
 export function productImageAlt(input: ProductImageInput): string {
