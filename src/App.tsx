@@ -38,7 +38,7 @@ function Header() {
     <header className="site-header">
       <div className="announcement"><span>OUTDOOR BRANDING • EVENTS • ACTIVATIONS</span><span className="announcement-note">Built for brands that show up.</span></div>
       <div className="nav-wrap">
-        <Link to="/" className="wordmark" aria-label="Print Kings home"><img src="/printkings-website/brand/print-kings-logo.svg" alt="Print Kings — Royal Quality. Every Impression." /></Link>
+        <Link to="/" className="wordmark" aria-label="Print Kings home"><img src="/printkings-website/brand/print-kings-logo.svg?v=print-kings-logo-1" alt="Print Kings — Royal Quality. Every Impression." /></Link>
         <nav className="desktop-nav" aria-label="Primary navigation">
           {navItems.map(([label, href]) => <Link key={href} className={location.pathname === href ? "active" : ""} to={href}>{label}</Link>)}
         </nav>
