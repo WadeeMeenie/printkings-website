@@ -1,0 +1,785 @@
+[
+  {
+    "catalogue_sku": "OD184",
+    "product_id": "9dc108d2-cc04-4fd8-80b0-ea1833bf6b36",
+    "variant_id": "5c19c765-b56c-4455-8129-73cde422eb17",
+    "product_name": "Bow Flag 2m Single",
+    "variant_name": "Bow Flag 2m Single",
+    "category_name": "Flags",
+    "storage_path": "images/products/flags-od184.webp",
+    "local_asset_path": "/home/ubuntu/printkings-website/public/images/products/flags-od184.webp",
+    "source_product_page": "https://displaymania.co.za/shop/bow-banner-single-sided/",
+    "source_image_url": "https://displaymania.co.za/wp-content/uploads/2021/03/Bow-Banner-single-Sided.jpg",
+    "original_reference_url": "https://displaymania.co.za/wp-content/uploads/2021/03/Bow-Banner-single-Sided.jpg",
+    "official_sku": "OD184",
+    "alt_text": "Bow Flag 2m Single product image",
+    "approved": true,
+    "visual_qa": "PASS",
+    "visual_qa_note": "Official reference visually represents the exact verified product family and configuration.",
+    "source_dimensions": [
+      600,
+      600
+    ],
+    "output_dimensions": [
+      600,
+      600
+    ],
+    "output_bytes": 48686,
+    "output_sha256": "5158c25e07eeb206dd285d4da13a69824be0f22ba39247172aa67597ba8b1fe3",
+    "mean_abs_pixel_delta_after_webp": 1.5529
+  },
+  {
+    "catalogue_sku": "OD189",
+    "product_id": "65049c8c-67d1-46ea-bcb5-cb44f16bdf76",
+    "variant_id": "5d4f54b3-5fe1-4e26-996e-565cd03b7658",
+    "product_name": "Bow Flag 4m Double",
+    "variant_name": "Bow Flag 4m Double",
+    "category_name": "Flags",
+    "storage_path": "images/products/flags-od189.webp",
+    "local_asset_path": "/home/ubuntu/printkings-website/public/images/products/flags-od189.webp",
+    "source_product_page": "https://displaymania.co.za/shop/bow-banner-double-sided/",
+    "source_image_url": "https://displaymania.co.za/wp-content/uploads/2021/03/Bow-Banner-Double-Sided.jpg",
+    "original_reference_url": "https://displaymania.co.za/wp-content/uploads/2021/03/Bow-Banner-Double-Sided.jpg",
+    "official_sku": "OD189",
+    "alt_text": "Bow Flag 4m Double product image",
+    "approved": true,
+    "visual_qa": "PASS",
+    "visual_qa_note": "Official reference visually represents the exact verified product family and configuration.",
+    "source_dimensions": [
+      600,
+      600
+    ],
+    "output_dimensions": [
+      600,
+      600
+    ],
+    "output_bytes": 62162,
+    "output_sha256": "ab52e7db02d0f0ceea93d9ded51f09d22fa2f7ac4e81b056d6b415a177b79d3e",
+    "mean_abs_pixel_delta_after_webp": 1.8294
+  },
+  {
+    "catalogue_sku": "OD318",
+    "product_id": "4c85e884-d2e8-4423-8afd-fddf42549487",
+    "variant_id": "18f816a9-3b68-4ea4-bfdf-785f4c8a51e1",
+    "product_name": "Flame Lantern 1.8m Ground Spikes",
+    "variant_name": "Flame Lantern 1.8m Ground Spikes",
+    "category_name": "Flags",
+    "storage_path": "images/products/flags-od318.webp",
+    "local_asset_path": "/home/ubuntu/printkings-website/public/images/products/flags-od318.webp",
+    "source_product_page": "https://displaymania.co.za/shop/lantern-banner/",
+    "source_image_url": "https://displaymania.co.za/wp-content/uploads/2026/09/Lantern-Banner.png",
+    "original_reference_url": "https://displaymania.co.za/wp-content/uploads/2026/09/Lantern-Banner.png",
+    "official_sku": "OD318",
+    "alt_text": "Flame Lantern 1.8m Ground Spikes product image",
+    "approved": true,
+    "visual_qa": "PASS",
+    "visual_qa_note": "Official reference visually represents the exact verified product family and configuration.",
+    "source_dimensions": [
+      1254,
+      1254
+    ],
+    "output_dimensions": [
+      1254,
+      1254
+    ],
+    "output_bytes": 392720,
+    "output_sha256": "e5d35ffe41b19863164a3e76de5e8ded6a6f1e90cf34c3b3e6ec1942b2a5231f",
+    "mean_abs_pixel_delta_after_webp": 2.1915
+  },
+  {
+    "catalogue_sku": "OD181",
+    "product_id": "9546ac87-ff20-4653-a8a2-330c754ad329",
+    "variant_id": "2aadb42c-6e6d-41a1-94b8-4554aaeff9b0",
+    "product_name": "Sharkfin Deluxe Flag 2m Double",
+    "variant_name": "Sharkfin Deluxe Flag 2m Double",
+    "category_name": "Flags",
+    "storage_path": "images/products/flags-od181.webp",
+    "local_asset_path": "/home/ubuntu/printkings-website/public/images/products/flags-od181.webp",
+    "source_product_page": "https://displaymania.co.za/shop/sharkfin-banner-double-sided/",
+    "source_image_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Sharkfin-Banner-Double-Sided.jpg",
+    "original_reference_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Sharkfin-Banner-Double-Sided.jpg",
+    "official_sku": "OD181",
+    "alt_text": "Sharkfin Deluxe Flag 2m Double product image",
+    "approved": true,
+    "visual_qa": "PASS",
+    "visual_qa_note": "Approved family master for 2m double-sided Sharkfin; construction and sidedness match.",
+    "source_dimensions": [
+      600,
+      600
+    ],
+    "output_dimensions": [
+      600,
+      600
+    ],
+    "output_bytes": 97552,
+    "output_sha256": "d532d2420a69f88f3883559a7a276907bd9084bb3821d1e656909bca98af0efb",
+    "mean_abs_pixel_delta_after_webp": 2.6986
+  },
+  {
+    "catalogue_sku": "OD182",
+    "product_id": "803e8734-3567-485e-a668-53caeb65b0c4",
+    "variant_id": "8892764f-76ce-4e18-808f-a99916c6710f",
+    "product_name": "Sharkfin Deluxe Flag 3m Double",
+    "variant_name": "Sharkfin Deluxe Flag 3m Double",
+    "category_name": "Flags",
+    "storage_path": "images/products/flags-od182.webp",
+    "local_asset_path": "/home/ubuntu/printkings-website/public/images/products/flags-od182.webp",
+    "source_product_page": "https://displaymania.co.za/shop/sharkfin-banner-double-sided/",
+    "source_image_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Sharkfin-Banner-Double-Sided.jpg",
+    "original_reference_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Sharkfin-Banner-Double-Sided.jpg",
+    "official_sku": "OD182",
+    "alt_text": "Sharkfin Deluxe Flag 3m Double product image",
+    "approved": true,
+    "visual_qa": "PASS",
+    "visual_qa_note": "Approved family master for 3m double-sided Sharkfin; only the documented height differs from the shared 2m reference.",
+    "source_dimensions": [
+      600,
+      600
+    ],
+    "output_dimensions": [
+      600,
+      600
+    ],
+    "output_bytes": 97552,
+    "output_sha256": "d532d2420a69f88f3883559a7a276907bd9084bb3821d1e656909bca98af0efb",
+    "mean_abs_pixel_delta_after_webp": 2.6986
+  },
+  {
+    "catalogue_sku": "OD179",
+    "product_id": "60f0fac6-87bf-4600-b3bf-b5d0b173cfd3",
+    "variant_id": "58167a31-fdec-4f1b-bc72-78da65b91b69",
+    "product_name": "Sharkfin Deluxe Flag 3m Single",
+    "variant_name": "Sharkfin Deluxe Flag 3m Single",
+    "category_name": "Flags",
+    "storage_path": "images/products/flags-od179.webp",
+    "local_asset_path": "/home/ubuntu/printkings-website/public/images/products/flags-od179.webp",
+    "source_product_page": "https://displaymania.co.za/shop/sharkfin-banner-single-sided/",
+    "source_image_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Sharkfin-Banner-single-Sided.jpg",
+    "original_reference_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Sharkfin-Banner-single-Sided.jpg",
+    "official_sku": "OD179",
+    "alt_text": "Sharkfin Deluxe Flag 3m Single product image",
+    "approved": true,
+    "visual_qa": "PASS",
+    "visual_qa_note": "Approved family master for 3m single-sided Sharkfin; construction and sidedness match.",
+    "source_dimensions": [
+      600,
+      600
+    ],
+    "output_dimensions": [
+      600,
+      600
+    ],
+    "output_bytes": 80542,
+    "output_sha256": "01121899663eb5d33d18d4bb7bc37a9336551b058a4659431544f34d124012e1",
+    "mean_abs_pixel_delta_after_webp": 2.3976
+  },
+  {
+    "catalogue_sku": "OD180",
+    "product_id": "d1cbc140-2562-4923-b408-083c341ad931",
+    "variant_id": "f19c6fe6-3dbe-4c25-a0e9-9eb473817332",
+    "product_name": "Sharkfin Deluxe Flag 4m Single",
+    "variant_name": "Sharkfin Deluxe Flag 4m Single",
+    "category_name": "Flags",
+    "storage_path": "images/products/flags-od180.webp",
+    "local_asset_path": "/home/ubuntu/printkings-website/public/images/products/flags-od180.webp",
+    "source_product_page": "https://displaymania.co.za/shop/sharkfin-banner-single-sided/",
+    "source_image_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Sharkfin-Banner-single-Sided.jpg",
+    "original_reference_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Sharkfin-Banner-single-Sided.jpg",
+    "official_sku": "OD180",
+    "alt_text": "Sharkfin Deluxe Flag 4m Single product image",
+    "approved": true,
+    "visual_qa": "PASS",
+    "visual_qa_note": "Approved family master for 4m single-sided Sharkfin; only the documented height differs from the shared 3m reference.",
+    "source_dimensions": [
+      600,
+      600
+    ],
+    "output_dimensions": [
+      600,
+      600
+    ],
+    "output_bytes": 80542,
+    "output_sha256": "01121899663eb5d33d18d4bb7bc37a9336551b058a4659431544f34d124012e1",
+    "mean_abs_pixel_delta_after_webp": 2.3976
+  },
+  {
+    "catalogue_sku": "OD282",
+    "product_id": "525457f2-45bd-42b2-9b3b-c2f5fe144cc8",
+    "variant_id": "1066cecd-0fa1-45bb-a230-303a95573952",
+    "product_name": "Starshade 14m",
+    "variant_name": "Starshade 14m",
+    "category_name": "Flags",
+    "storage_path": "images/products/flags-od282.webp",
+    "local_asset_path": "/home/ubuntu/printkings-website/public/images/products/flags-od282.webp",
+    "source_product_page": "https://displaymania.co.za/shop/starshade-tents/",
+    "source_image_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Starshade-Tents.jpg",
+    "original_reference_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Starshade-Tents.jpg",
+    "official_sku": "OD282",
+    "alt_text": "Starshade 14m product image",
+    "approved": true,
+    "visual_qa": "PASS",
+    "visual_qa_note": "Official reference visually represents the exact verified product family and configuration.",
+    "source_dimensions": [
+      600,
+      600
+    ],
+    "output_dimensions": [
+      600,
+      600
+    ],
+    "output_bytes": 134868,
+    "output_sha256": "a88fef8616cffb489667d84091cc282aa9e7c20b47ae9e634f14482ab9243844",
+    "mean_abs_pixel_delta_after_webp": 3.5294
+  },
+  {
+    "catalogue_sku": "OD284",
+    "product_id": "76059e7d-fc6e-492f-9054-393e81663a65",
+    "variant_id": "410e0cba-3cba-4966-9311-e12bd7675721",
+    "product_name": "Starshade 19m",
+    "variant_name": "Starshade 19m",
+    "category_name": "Flags",
+    "storage_path": "images/products/flags-od284.webp",
+    "local_asset_path": "/home/ubuntu/printkings-website/public/images/products/flags-od284.webp",
+    "source_product_page": "https://displaymania.co.za/shop/starshade-tents/",
+    "source_image_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Starshade-Tent-19m.jpg",
+    "original_reference_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Starshade-Tent-19m.jpg",
+    "official_sku": "OD284",
+    "alt_text": "Starshade 19m product image",
+    "approved": true,
+    "visual_qa": "PASS",
+    "visual_qa_note": "Official reference visually represents the exact verified product family and configuration.",
+    "source_dimensions": [
+      700,
+      700
+    ],
+    "output_dimensions": [
+      700,
+      700
+    ],
+    "output_bytes": 19362,
+    "output_sha256": "3d48f2992609981b43e7a9ba7ebf843d78c65729618bb60073bb5624742b65be",
+    "mean_abs_pixel_delta_after_webp": 0.3229
+  },
+  {
+    "catalogue_sku": "OD177",
+    "product_id": "4c83bc97-b26c-416e-bb86-cf4fbc2e267c",
+    "variant_id": "601cc9e3-903d-46ca-86c0-55744d670ad8",
+    "product_name": "Telescopic Flag 4m Double",
+    "variant_name": "Telescopic Flag 4m Double",
+    "category_name": "Flags",
+    "storage_path": "images/products/flags-od177.webp",
+    "local_asset_path": "/home/ubuntu/printkings-website/public/images/products/flags-od177.webp",
+    "source_product_page": "https://displaymania.co.za/shop/telescopic-banner-double-sided/",
+    "source_image_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Telescopic-Banner-Double-Sided.jpg",
+    "original_reference_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Telescopic-Banner-Double-Sided.jpg",
+    "official_sku": "OD177",
+    "alt_text": "Telescopic Flag 4m Double product image",
+    "approved": true,
+    "visual_qa": "PASS",
+    "visual_qa_note": "Official reference visually represents the exact verified product family and configuration.",
+    "source_dimensions": [
+      600,
+      600
+    ],
+    "output_dimensions": [
+      600,
+      600
+    ],
+    "output_bytes": 119952,
+    "output_sha256": "a161f6f674a5f9717897919a061344e5b1c02b3a355861e2d45ae69a0d3edf1a",
+    "mean_abs_pixel_delta_after_webp": 3.0389
+  },
+  {
+    "catalogue_sku": "FS049",
+    "product_id": "dfd1a186-c2d5-4a9e-924a-390eb661b054",
+    "variant_id": "d931ef7b-6334-44e4-89ce-15c2f8e59072",
+    "product_name": "A1 Sandwich Board 28mm",
+    "variant_name": "A1 Sandwich Board 28mm",
+    "category_name": "Frames & Components",
+    "storage_path": "images/products/frames-components-fs049.webp",
+    "local_asset_path": "/home/ubuntu/printkings-website/public/images/products/frames-components-fs049.webp",
+    "source_product_page": "https://displaymania.co.za/shop/sandwich-board-28mm-profile/",
+    "source_image_url": "https://displaymania.co.za/wp-content/uploads/2021/04/Sandwich-Board.jpg",
+    "original_reference_url": "https://displaymania.co.za/wp-content/uploads/2021/04/Sandwich-Board.jpg",
+    "official_sku": "FS049",
+    "alt_text": "A1 Sandwich Board 28mm product image",
+    "approved": true,
+    "visual_qa": "PASS",
+    "visual_qa_note": "Official reference visually represents the exact verified product family and configuration.",
+    "source_dimensions": [
+      700,
+      700
+    ],
+    "output_dimensions": [
+      700,
+      700
+    ],
+    "output_bytes": 22596,
+    "output_sha256": "89abfe511136f1d7c9b23d2dd829c0f7a966bb3be35cd2b1428c42c0b9163fa6",
+    "mean_abs_pixel_delta_after_webp": 0.3885
+  },
+  {
+    "catalogue_sku": "ID305",
+    "product_id": "e3963f63-265c-424d-9f46-be300303b8de",
+    "variant_id": "760b3a3a-b96b-4e22-a14c-628c5aa37cd5",
+    "product_name": "Branded Standard Tablecloth 2.4x1.4m",
+    "variant_name": "Branded Standard Tablecloth 2.4x1.4m",
+    "category_name": "Furniture",
+    "storage_path": "images/products/furniture-id305.webp",
+    "local_asset_path": "/home/ubuntu/printkings-website/public/images/products/furniture-id305.webp",
+    "source_product_page": "https://displaymania.co.za/shop/table-cloths-flat/",
+    "source_image_url": "https://displaymania.co.za/wp-content/uploads/2021/04/Table-Cloths-%E2%80%93-Flat.jpg",
+    "original_reference_url": "https://displaymania.co.za/wp-content/uploads/2021/04/Table-Cloths-%E2%80%93-Flat.jpg",
+    "official_sku": "ID305",
+    "alt_text": "Branded Standard Tablecloth 2.4x1.4m product image",
+    "approved": true,
+    "visual_qa": "PASS",
+    "visual_qa_note": "Official reference visually represents the exact verified product family and configuration.",
+    "source_dimensions": [
+      700,
+      700
+    ],
+    "output_dimensions": [
+      700,
+      700
+    ],
+    "output_bytes": 11634,
+    "output_sha256": "a2bab051f32b3bacc4ed562663768d651dd17adc34b3f4a627990a44bb4ab963",
+    "mean_abs_pixel_delta_after_webp": 0.238
+  },
+  {
+    "catalogue_sku": "ID258",
+    "product_id": "fd74788e-6164-4a02-89ea-89339b57d4d4",
+    "variant_id": "a7ef3ae5-d819-4922-8ef8-b44f4518209b",
+    "product_name": "Branded Stretch Tablecloth 1800x760x690mm",
+    "variant_name": "Branded Stretch Tablecloth 1800x760x690mm",
+    "category_name": "Furniture",
+    "storage_path": "images/products/furniture-id258.webp",
+    "local_asset_path": "/home/ubuntu/printkings-website/public/images/products/furniture-id258.webp",
+    "source_product_page": "https://displaymania.co.za/shop/table-cloths-stretch/",
+    "source_image_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Tablecloth-Stretch.jpg",
+    "original_reference_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Tablecloth-Stretch.jpg",
+    "official_sku": "ID258",
+    "alt_text": "Branded Stretch Tablecloth 1800x760x690mm product image",
+    "approved": true,
+    "visual_qa": "PASS",
+    "visual_qa_note": "Official reference visually represents the exact verified product family and configuration.",
+    "source_dimensions": [
+      600,
+      600
+    ],
+    "output_dimensions": [
+      600,
+      600
+    ],
+    "output_bytes": 47078,
+    "output_sha256": "40e05a9c18c9c07c0c70e315c539cec653ac4144d6654c9c850ca15998a619e7",
+    "mean_abs_pixel_delta_after_webp": 1.745
+  },
+  {
+    "catalogue_sku": "OD151",
+    "product_id": "fc16bd35-d811-4deb-8e43-5eb3a8fa3111",
+    "variant_id": "17a8d91f-9930-4506-8e52-053ddd065f1e",
+    "product_name": "Premium Aluminium Gazebo 2x2m",
+    "variant_name": "Premium Aluminium Gazebo 2x2m",
+    "category_name": "Gazebos & Kiosks",
+    "storage_path": "images/products/gazebos-kiosks-od151.webp",
+    "local_asset_path": "/home/ubuntu/printkings-website/public/images/products/gazebos-kiosks-od151.webp",
+    "source_product_page": "https://displaymania.co.za/shop/premium-aluminium-gazebos/",
+    "source_image_url": "https://displaymania.co.za/wp-content/uploads/2021/04/Premium-Aluminium-Gazebo-2x2-1.jpg",
+    "original_reference_url": "https://displaymania.co.za/wp-content/uploads/2021/04/Premium-Aluminium-Gazebo-2x2-1.jpg",
+    "official_sku": "OD151",
+    "alt_text": "Premium Aluminium Gazebo 2x2m product image",
+    "approved": true,
+    "visual_qa": "PASS",
+    "visual_qa_note": "Official reference visually represents the exact verified product family and configuration.",
+    "source_dimensions": [
+      700,
+      700
+    ],
+    "output_dimensions": [
+      700,
+      700
+    ],
+    "output_bytes": 9908,
+    "output_sha256": "49103e3431ed4aea1e4fd22bcaaff1f5c302fdd99afeca51d692d9435f1496b9",
+    "mean_abs_pixel_delta_after_webp": 0.2006
+  },
+  {
+    "catalogue_sku": "OD153",
+    "product_id": "7f6886d1-fee7-46e5-bfa1-58d7f603f635",
+    "variant_id": "f95c1f78-64e6-418a-903c-e64182d5249f",
+    "product_name": "Premium Aluminium Gazebo 3x3m",
+    "variant_name": "Premium Aluminium Gazebo 3x3m",
+    "category_name": "Gazebos & Kiosks",
+    "storage_path": "images/products/gazebos-kiosks-od153.webp",
+    "local_asset_path": "/home/ubuntu/printkings-website/public/images/products/gazebos-kiosks-od153.webp",
+    "source_product_page": "https://displaymania.co.za/shop/premium-aluminium-gazebos/",
+    "source_image_url": "https://displaymania.co.za/wp-content/uploads/2021/04/Premium-Aluminium-Gazebo-3x3-1.jpg",
+    "original_reference_url": "https://displaymania.co.za/wp-content/uploads/2021/04/Premium-Aluminium-Gazebo-3x3-1.jpg",
+    "official_sku": "OD153",
+    "alt_text": "Premium Aluminium Gazebo 3x3m product image",
+    "approved": true,
+    "visual_qa": "PASS",
+    "visual_qa_note": "Official reference visually represents the exact verified product family and configuration.",
+    "source_dimensions": [
+      700,
+      700
+    ],
+    "output_dimensions": [
+      700,
+      700
+    ],
+    "output_bytes": 13436,
+    "output_sha256": "019f50d56760d998909c9b23091ee87d8e1d2a1fc8c323d7e7bbbc56dbbd2a4c",
+    "mean_abs_pixel_delta_after_webp": 0.2295
+  },
+  {
+    "catalogue_sku": "OD154",
+    "product_id": "b5d43799-cf29-4d98-a463-800164d345ac",
+    "variant_id": "5be86906-5ec9-4500-a2f3-f913feaec4cf",
+    "product_name": "Premium Aluminium Gazebo 3x4.5m",
+    "variant_name": "Premium Aluminium Gazebo 3x4.5m",
+    "category_name": "Gazebos & Kiosks",
+    "storage_path": "images/products/gazebos-kiosks-od154.webp",
+    "local_asset_path": "/home/ubuntu/printkings-website/public/images/products/gazebos-kiosks-od154.webp",
+    "source_product_page": "https://displaymania.co.za/shop/premium-aluminium-gazebos/",
+    "source_image_url": "https://displaymania.co.za/wp-content/uploads/2021/04/Premium-Aluminium-Gazebo-3x4.5m.jpg",
+    "original_reference_url": "https://displaymania.co.za/wp-content/uploads/2021/04/Premium-Aluminium-Gazebo-3x4.5m.jpg",
+    "official_sku": "OD154",
+    "alt_text": "Premium Aluminium Gazebo 3x4.5m product image",
+    "approved": true,
+    "visual_qa": "PASS",
+    "visual_qa_note": "Official reference visually represents the exact verified product family and configuration.",
+    "source_dimensions": [
+      700,
+      700
+    ],
+    "output_dimensions": [
+      700,
+      700
+    ],
+    "output_bytes": 14428,
+    "output_sha256": "40571c3ff30a6d15d85d2497dbc540adfae39e5f6bb3337db7a0c8c2486561e2",
+    "mean_abs_pixel_delta_after_webp": 0.1588
+  },
+  {
+    "catalogue_sku": "OD155",
+    "product_id": "be4a811e-c76a-498c-b543-42dda420e385",
+    "variant_id": "04b1301f-23e1-44e8-ab76-e53d7a338df4",
+    "product_name": "Premium Aluminium Gazebo 3x6m",
+    "variant_name": "Premium Aluminium Gazebo 3x6m",
+    "category_name": "Gazebos & Kiosks",
+    "storage_path": "images/products/gazebos-kiosks-od155.webp",
+    "local_asset_path": "/home/ubuntu/printkings-website/public/images/products/gazebos-kiosks-od155.webp",
+    "source_product_page": "https://displaymania.co.za/shop/premium-aluminium-gazebos/",
+    "source_image_url": "https://displaymania.co.za/wp-content/uploads/2021/04/Premium-Aluminium-Gazebo-3x6m.jpg",
+    "original_reference_url": "https://displaymania.co.za/wp-content/uploads/2021/04/Premium-Aluminium-Gazebo-3x6m.jpg",
+    "official_sku": "OD155",
+    "alt_text": "Premium Aluminium Gazebo 3x6m product image",
+    "approved": true,
+    "visual_qa": "PASS",
+    "visual_qa_note": "Official reference visually represents the exact verified product family and configuration.",
+    "source_dimensions": [
+      700,
+      700
+    ],
+    "output_dimensions": [
+      700,
+      700
+    ],
+    "output_bytes": 12572,
+    "output_sha256": "3542483c40afcca999a076455de159d7bab7798b300c12d1263f4b6bdd154443",
+    "mean_abs_pixel_delta_after_webp": 0.3206
+  },
+  {
+    "catalogue_sku": "OD291",
+    "product_id": "114a3397-ffc3-45b5-a0fb-bed6c0c28703",
+    "variant_id": "bf0cfc0f-eee4-4f57-b21a-ffaa2e6e8e84",
+    "product_name": "Value Steel Gazebo 2x2m",
+    "variant_name": "Value Steel Gazebo 2x2m",
+    "category_name": "Gazebos & Kiosks",
+    "storage_path": "images/products/gazebos-kiosks-od291.webp",
+    "local_asset_path": "/home/ubuntu/printkings-website/public/images/products/gazebos-kiosks-od291.webp",
+    "source_product_page": "https://displaymania.co.za/shop/value-steel-gazebo-powder-coated-white/",
+    "source_image_url": "https://displaymania.co.za/wp-content/uploads/2021/04/Value-Steel-Gazebo-2x2-1.jpg",
+    "original_reference_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Value-Steel-Gazebo-Powder-Coated-White.jpg",
+    "official_sku": "OD291",
+    "alt_text": "Value Steel Gazebo 2x2m product image",
+    "approved": true,
+    "visual_qa": "PASS",
+    "visual_qa_note": "Current official 2x2 variation image; replaces a stale 2021 URL that returned an error.",
+    "source_dimensions": [
+      1080,
+      1080
+    ],
+    "output_dimensions": [
+      1080,
+      1080
+    ],
+    "output_bytes": 30428,
+    "output_sha256": "57a29fff628ad74ed762fe36120350528f0066b6fd4e458a0ef5671c4bb0c16d",
+    "mean_abs_pixel_delta_after_webp": 0.3022
+  },
+  {
+    "catalogue_sku": "OD292",
+    "product_id": "121a7dc3-04ef-4693-b806-85be7100898a",
+    "variant_id": "d44605a6-c0cc-4190-b1e6-52aa2b5e9dd5",
+    "product_name": "Value Steel Gazebo 3x3m",
+    "variant_name": "Value Steel Gazebo 3x3m",
+    "category_name": "Gazebos & Kiosks",
+    "storage_path": "images/products/gazebos-kiosks-od292.webp",
+    "local_asset_path": "/home/ubuntu/printkings-website/public/images/products/gazebos-kiosks-od292.webp",
+    "source_product_page": "https://displaymania.co.za/shop/value-steel-gazebo-powder-coated-white/",
+    "source_image_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Value-Steel-Gazebo-Powder-Coated-White-560x560.jpg",
+    "original_reference_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Value-Steel-Gazebo-Powder-Coated-White.jpg",
+    "official_sku": "OD292",
+    "alt_text": "Value Steel Gazebo 3x3m product image",
+    "approved": true,
+    "visual_qa": "PASS",
+    "visual_qa_note": "Current official family master; the only verified difference is documented 3x3 scale.",
+    "source_dimensions": [
+      560,
+      560
+    ],
+    "output_dimensions": [
+      560,
+      560
+    ],
+    "output_bytes": 87262,
+    "output_sha256": "038f3c62c20ba6bb4e05bf93796b0afb58a9a8ed4c5d7c390f448cf05c19d421",
+    "mean_abs_pixel_delta_after_webp": 2.9146
+  },
+  {
+    "catalogue_sku": "ID232",
+    "product_id": "58ca6575-c856-4c07-ae36-2400d290e1bc",
+    "variant_id": "7c511efe-613c-44ff-b4eb-f3cb711d7e60",
+    "product_name": "Deluxe Banner Wall 2.25x4.5m",
+    "variant_name": "Deluxe Banner Wall 2.25x4.5m",
+    "category_name": "Indoor Branding",
+    "storage_path": "images/products/indoor-branding-id232.webp",
+    "local_asset_path": "/home/ubuntu/printkings-website/public/images/products/indoor-branding-id232.webp",
+    "source_product_page": "https://displaymania.co.za/shop/straight-fabric-banner-wall/",
+    "source_image_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Straight-Banner.jpg",
+    "original_reference_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Straight-Banner.jpg",
+    "official_sku": "ID232",
+    "alt_text": "Deluxe Banner Wall 2.25x4.5m product image",
+    "approved": true,
+    "visual_qa": "PASS",
+    "visual_qa_note": "Approved official straight-banner-wall master; SKU evidence establishes the 2.25 x 4.5m variation while the image represents the exact construction and single-sided configuration.",
+    "source_dimensions": [
+      600,
+      600
+    ],
+    "output_dimensions": [
+      600,
+      600
+    ],
+    "output_bytes": 66188,
+    "output_sha256": "b23b15c706113f643cedf5c11fd7c90356096d9697afbccd2037f4f294f323d1",
+    "mean_abs_pixel_delta_after_webp": 1.777
+  },
+  {
+    "catalogue_sku": "ID223",
+    "product_id": "8a047cc4-312a-4cd9-a2f0-4173a274d122",
+    "variant_id": "440cff04-1419-40a7-9e65-1084cf044c99",
+    "product_name": "Econo Pull-Up Banner 2x0.85m",
+    "variant_name": "Econo Pull-Up Banner 2x0.85m",
+    "category_name": "Indoor Branding",
+    "storage_path": "images/products/indoor-branding-id223.webp",
+    "local_asset_path": "/home/ubuntu/printkings-website/public/images/products/indoor-branding-id223.webp",
+    "source_product_page": "https://displaymania.co.za/shop/pull-up-banners-economy/",
+    "source_image_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Pull-Up-Banners-%E2%80%93-Economy.jpg",
+    "original_reference_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Pull-Up-Banners-%E2%80%93-Economy.jpg",
+    "official_sku": "ID223",
+    "alt_text": "Econo Pull-Up Banner 2x0.85m product image",
+    "approved": true,
+    "visual_qa": "PASS",
+    "visual_qa_note": "Official reference visually represents the exact verified product family and configuration.",
+    "source_dimensions": [
+      600,
+      600
+    ],
+    "output_dimensions": [
+      600,
+      600
+    ],
+    "output_bytes": 50478,
+    "output_sha256": "33e78faa699e9922b51670614372e7f622bd66a9154478a5712e5c4738c6bc16",
+    "mean_abs_pixel_delta_after_webp": 1.6032
+  },
+  {
+    "catalogue_sku": "ID273",
+    "product_id": "8d84e725-7b19-4df2-b0ea-9613c4102c61",
+    "variant_id": "7d9e4192-3760-4193-a00c-6525ab6a7d8f",
+    "product_name": "Executive X-Banner 1.6x0.6m",
+    "variant_name": "Executive X-Banner 1.6x0.6m",
+    "category_name": "Indoor Branding",
+    "storage_path": "images/products/indoor-branding-id273.webp",
+    "local_asset_path": "/home/ubuntu/printkings-website/public/images/products/indoor-branding-id273.webp",
+    "source_product_page": "https://displaymania.co.za/shop/x-banner/",
+    "source_image_url": "https://displaymania.co.za/wp-content/uploads/2021/02/X-Banner.jpg",
+    "original_reference_url": "https://displaymania.co.za/wp-content/uploads/2021/02/X-Banner.jpg",
+    "official_sku": "ID273",
+    "alt_text": "Executive X-Banner 1.6x0.6m product image",
+    "approved": true,
+    "visual_qa": "PASS",
+    "visual_qa_note": "Official reference visually represents the exact verified product family and configuration.",
+    "source_dimensions": [
+      600,
+      600
+    ],
+    "output_dimensions": [
+      600,
+      600
+    ],
+    "output_bytes": 52326,
+    "output_sha256": "23026fc692815f3f4855b92ad657ad1328a99a23edd6fa515a1580105b5d0730",
+    "mean_abs_pixel_delta_after_webp": 1.6775
+  },
+  {
+    "catalogue_sku": "PR354",
+    "product_id": "3b677900-b23a-4802-8427-9ef70959cda2",
+    "variant_id": "a5e8b2b9-f9a6-44b4-b719-3e3a8ff3089a",
+    "product_name": "PVC Outdoor Banner 2x1m",
+    "variant_name": "PVC Outdoor Banner 2x1m",
+    "category_name": "Outdoor Displays",
+    "storage_path": "images/products/outdoor-displays-pr354.webp",
+    "local_asset_path": "/home/ubuntu/printkings-website/public/images/products/outdoor-displays-pr354.webp",
+    "source_product_page": "https://displaymania.co.za/shop/pvc-banners-glazed/",
+    "source_image_url": "https://displaymania.co.za/wp-content/uploads/2021/06/PVC-Banner-2x1m.jpg",
+    "original_reference_url": "https://displaymania.co.za/wp-content/uploads/2021/06/PVC-Banner-2x1m.jpg",
+    "official_sku": "PR354",
+    "alt_text": "PVC Outdoor Banner 2x1m product image",
+    "approved": true,
+    "visual_qa": "PASS",
+    "visual_qa_note": "Official reference visually represents the exact verified product family and configuration.",
+    "source_dimensions": [
+      700,
+      700
+    ],
+    "output_dimensions": [
+      700,
+      700
+    ],
+    "output_bytes": 42654,
+    "output_sha256": "1cdbf1b8ade27e15a870d87ddad821e77279136cf50ae83c32d55f401b62803d",
+    "mean_abs_pixel_delta_after_webp": 0.6547
+  },
+  {
+    "catalogue_sku": "OD210",
+    "product_id": "c9c4297b-cd31-42ed-accd-ea9c2cf277b1",
+    "variant_id": "bd274535-246d-47e2-a2c1-9b6d6ed759c6",
+    "product_name": "Round Pop-Up Banner 1x1m",
+    "variant_name": "Round Pop-Up Banner 1x1m",
+    "category_name": "Outdoor Displays",
+    "storage_path": "images/products/outdoor-displays-od210.webp",
+    "local_asset_path": "/home/ubuntu/printkings-website/public/images/products/outdoor-displays-od210.webp",
+    "source_product_page": "https://displaymania.co.za/shop/round-pop-up-banner/",
+    "source_image_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Round-Pop-Up-Banner.jpg",
+    "original_reference_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Round-Pop-Up-Banner.jpg",
+    "official_sku": "OD210",
+    "alt_text": "Round Pop-Up Banner 1x1m product image",
+    "approved": true,
+    "visual_qa": "PASS",
+    "visual_qa_note": "Official reference visually represents the exact verified product family and configuration.",
+    "source_dimensions": [
+      600,
+      600
+    ],
+    "output_dimensions": [
+      600,
+      600
+    ],
+    "output_bytes": 113684,
+    "output_sha256": "5e0f484fce92e30874b9bbf33d584abbcd1d75b823966332a611a36bb669e9ba",
+    "mean_abs_pixel_delta_after_webp": 2.8055
+  },
+  {
+    "catalogue_sku": "ID246",
+    "product_id": "b145b761-3322-49b4-b993-dda123ee2229",
+    "variant_id": "731c53f1-8e16-4140-981e-8bf7664cab99",
+    "product_name": "Standard Promo Table 900x420x820mm",
+    "variant_name": "Standard Promo Table 900x420x820mm",
+    "category_name": "Promo Counters",
+    "storage_path": "images/products/promo-counters-id246.webp",
+    "local_asset_path": "/home/ubuntu/printkings-website/public/images/products/promo-counters-id246.webp",
+    "source_product_page": "https://displaymania.co.za/shop/standard-promo-table/",
+    "source_image_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Standard-Promo-Table.jpg",
+    "original_reference_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Standard-Promo-Table.jpg",
+    "official_sku": "ID246",
+    "alt_text": "Standard Promo Table 900x420x820mm product image",
+    "approved": true,
+    "visual_qa": "PASS",
+    "visual_qa_note": "Official reference visually represents the exact verified product family and configuration.",
+    "source_dimensions": [
+      600,
+      600
+    ],
+    "output_dimensions": [
+      600,
+      600
+    ],
+    "output_bytes": 60014,
+    "output_sha256": "9bbf00bc19a0ce69d55970312ae8fecdb63620aea3ec520008352a1483e659fb",
+    "mean_abs_pixel_delta_after_webp": 1.6048
+  },
+  {
+    "catalogue_sku": "ID248",
+    "product_id": "5c67085d-35a1-4c84-8f48-2be21986cd52",
+    "variant_id": "8686a775-a3fb-40f8-8689-54b5ccbb9de4",
+    "product_name": "Standard Promo Table with Header 900x420x820mm",
+    "variant_name": "Standard Promo Table with Header 900x420x820mm",
+    "category_name": "Promo Counters",
+    "storage_path": "images/products/promo-counters-id248.webp",
+    "local_asset_path": "/home/ubuntu/printkings-website/public/images/products/promo-counters-id248.webp",
+    "source_product_page": "https://displaymania.co.za/shop/standard-promo-table-with-header/",
+    "source_image_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Standard-Promo-Table-with-Header.jpg",
+    "original_reference_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Standard-Promo-Table-with-Header.jpg",
+    "official_sku": "ID248",
+    "alt_text": "Standard Promo Table with Header 900x420x820mm product image",
+    "approved": true,
+    "visual_qa": "PASS",
+    "visual_qa_note": "Official reference visually represents the exact verified product family and configuration.",
+    "source_dimensions": [
+      600,
+      600
+    ],
+    "output_dimensions": [
+      600,
+      600
+    ],
+    "output_bytes": 58150,
+    "output_sha256": "266d7ac467aa7ca59159c1f69dc337eaf65a473ec430c24144841294cad77bf7",
+    "mean_abs_pixel_delta_after_webp": 1.5971
+  },
+  {
+    "catalogue_sku": "ID293",
+    "product_id": "0617c86d-6c37-412c-9336-3a61001dd697",
+    "variant_id": "ef5e9676-e3ee-4685-84f6-3c741e68d6a5",
+    "product_name": "Value Promo Table 664x850x350mm",
+    "variant_name": "Value Promo Table 664x850x350mm",
+    "category_name": "Promo Counters",
+    "storage_path": "images/products/promo-counters-id293.webp",
+    "local_asset_path": "/home/ubuntu/printkings-website/public/images/products/promo-counters-id293.webp",
+    "source_product_page": "https://displaymania.co.za/shop/value-promo-table/",
+    "source_image_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Value-Promo-Table.jpg",
+    "original_reference_url": "https://displaymania.co.za/wp-content/uploads/2021/02/Value-Promo-Table.jpg",
+    "official_sku": "ID293",
+    "alt_text": "Value Promo Table 664x850x350mm product image",
+    "approved": true,
+    "visual_qa": "PASS",
+    "visual_qa_note": "Official reference visually represents the exact verified product family and configuration.",
+    "source_dimensions": [
+      600,
+      600
+    ],
+    "output_dimensions": [
+      600,
+      600
+    ],
+    "output_bytes": 55866,
+    "output_sha256": "68d67ba261367196970627a043f3c7663b5ca6d21732fda7087c8ea0fc857734",
+    "mean_abs_pixel_delta_after_webp": 1.4795
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "catalogue_variants": 85,
+  "research_results": 85,
+  "research_failures": [],
+  "reported_confidence_counts": {
+    "AMBIGUOUS": 7,
+    "EXACT": 30,
+    "HIGH_CONFIDENCE": 34,
+    "UNVERIFIED": 14
+  },
+  "strict_exact_identity_count": 28,
+  "visual_qa_candidate_count": 28,
+  "status_after_exact_gate_counts": {
+    "AMBIGUOUS": 7,
+    "DOWNGRADED_NONEXACT": 2,
+    "HIGH_CONFIDENCE": 34,
+    "PENDING_VISUAL_QA": 28,
+    "UNVERIFIED": 14
+  },
+  "shared_candidate_reference_sources": {
+    "https://displaymania.co.za/wp-content/uploads/2021/02/Sharkfin-Banner-Double-Sided.jpg": 2,
+    "https://displaymania.co.za/wp-content/uploads/2021/02/Sharkfin-Banner-single-Sided.jpg": 2,
+    "https://displaymania.co.za/wp-content/uploads/2021/02/Value-Steel-Gazebo-Powder-Coated-White.jpg": 2
+  }
+}

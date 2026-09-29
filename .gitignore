@@ -9,3 +9,5 @@ dist/
 .vscode/*
 !.vscode/extensions.json
 coverage/
+audit/reference-images/
+audit/reference-image-collection-manifest.json
