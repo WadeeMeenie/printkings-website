@@ -58,9 +58,9 @@ export function ShopPage(){
     {!loading&&!error&&!visible.length&&<div className="empty-state"><h2>Nothing matched that search.</h2><p>Try another product, category or search term.</p><button onClick={()=>{update("q","");update("category","all")}} className="button button-dark">Reset filters <span>↗</span></button></div>}
     <div className="product-grid">
       {visible.map(group=>{
-        const item=group.primary,options=group.variants;
-        return <article className="product-card" key={item.variant_id}>
-          <Link to={`/shop/${item.category_slug}/${item.variant_slug}`} className="product-image">{imageMap[item.variant_id]?<img src={imageMap[item.variant_id]} alt={productImageAlt({productName:productFamilyName(item.product_name),categoryName:item.category_name})} loading="lazy"/>:<span className="product-image-missing">{(item.variant_name??item.product_name??"Product").slice(0,1)}</span>}<span className="image-arrow">↗</span></Link>
+        const item=group.primary,options=group.variants,variantId=item.variant_id ?? "";
+        return <article className="product-card" key={variantId}>
+          <Link to={`/shop/${item.category_slug}/${item.variant_slug}`} className="product-image">{imageMap[variantId]?<img src={imageMap[variantId]} alt={productImageAlt({productName:productFamilyName(item.product_name),categoryName:item.category_name})} loading="lazy"/>:<span className="product-image-missing">{(item.variant_name??item.product_name??"Product").slice(0,1)}</span>}<span className="image-arrow">↗</span></Link>
           <p className="eyebrow">{item.category_name}</p>
           <Link to={`/shop/${item.category_slug}/${item.variant_slug}`}><h2>{productFamilyName(item.product_name)}</h2></Link>
           {options.length>1&&<p className="product-parent">{options.length} sizes/configurations available.</p>}
