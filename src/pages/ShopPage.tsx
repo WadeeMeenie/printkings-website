@@ -30,7 +30,7 @@ export function ShopPage(){
     if(!ids.length){setImageMap({});return}
     const {data}=await supabase.from("product_images").select("variant_id,storage_path,external_url,sort_order,is_primary,approved").in("variant_id",ids).or("approved.eq.true,external_url.not.is.null").order("is_primary",{ascending:false}).order("sort_order");
     const counts=new Map<string,number>();for(const x of data??[]){if(x.storage_path)counts.set(x.storage_path,(counts.get(x.storage_path)??0)+1)}
-    const m:Record<string,string>={};for(const x of data??[]){const id=x.variant_id;if(!id)continue;const image=resolveMappedProductImage(x.storage_path,x.external_url);if(image&&x.storage_path&&counts.get(x.storage_path)===1&&!m[id])m[id]=image}setImageMap(m);
+    const m:Record<string,string>={};for(const x of data??[]){const id=x.variant_id;if(!id)continue;const image=resolveMappedProductImage(x.storage_path,x.external_url);if(image&&!m[id])m[id]=image}setImageMap(m);
   })()},[items]);
 
   const groups=useMemo(()=>{
