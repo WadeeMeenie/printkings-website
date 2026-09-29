@@ -26,11 +26,10 @@ export function ProductPage(){
       const {data:all}=await supabase.from("public_catalogue").select("*").eq("category_active",true).eq("category_slug",data.category_slug??categorySlug);
       const siblings=(all??[]).filter(x=>productFamilyKey(x.product_name??x.variant_name)===productFamilyKey(data.product_name??data.variant_name));
       const [{data:imgs},{data:rel},{data:allImgs}]=await Promise.all([
-        supabase.from("product_images").select("id,storage_path,external_url,alt_text,is_primary,sort_order").eq("variant_id",data.variant_id as string).or("approved.eq.true,external_url.not.is.null").order("is_primary",{ascending:false}).order("sort_order"),
+        supabase.from("product_images").select("id,storage_path,external_url,alt_text,is_primary,sort_order").eq("variant_id",data.variant_id as string).eq("approved",true).order("is_primary",{ascending:false}).order("sort_order"),
         supabase.from("public_catalogue").select("*").eq("category_active",true).eq("category_slug",data.category_slug??categorySlug).neq("variant_id",data.variant_id as string).limit(4),
         supabase.from("product_images").select("variant_id,storage_path,external_url").or("approved.eq.true,external_url.not.is.null")
       ]);
-      const counts=new Map<string,number>();for(const x of allImgs??[]){if(x.storage_path)counts.set(x.storage_path,(counts.get(x.storage_path)??0)+1)}
       const uniqueImgs=(imgs??[]).filter(x=>(x.storage_path||x.external_url)&&resolveMappedProductImage(x.storage_path,x.external_url));
       if(alive){const seenFamilies=new Set<string>();const uniqueRelated=(rel??[]).filter(candidate=>{const key=productFamilyKey(candidate.product_name??candidate.variant_name);if(key===productFamilyKey(data.product_name??data.variant_name)||seenFamilies.has(key))return false;seenFamilies.add(key);return true}).slice(0,4);setFamilyItems(siblings.sort(compareCatalogueVariants));setImages(uniqueImgs);setRelated(uniqueRelated);setLoading(false)}
     })();
