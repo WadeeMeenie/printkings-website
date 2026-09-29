@@ -38,7 +38,7 @@ function Header() {
     <header className="site-header">
       <div className="announcement"><span>OUTDOOR BRANDING • EVENTS • ACTIVATIONS</span><span className="announcement-note">Built for brands that show up.</span></div>
       <div className="nav-wrap">
-        <Link to="/" className="wordmark" aria-label="Print Kings home"><img src="/printkings-website/images/brand/print-kings-logo.webp" alt="Print Kings — Royal Quality. Every Impression." /></Link>
+        <Link to="/" className="wordmark" aria-label="Print Kings home"><img src="/printkings-website/brand/print-kings-logo.svg" alt="Print Kings — Royal Quality. Every Impression." /></Link>
         <nav className="desktop-nav" aria-label="Primary navigation">
           {navItems.map(([label, href]) => <Link key={href} className={location.pathname === href ? "active" : ""} to={href}>{label}</Link>)}
         </nav>
@@ -62,7 +62,7 @@ function Header() {
 }
 
 function Footer() {
-  return <footer className="site-footer"><div className="footer-grid"><div><Link to="/" className="wordmark footer-mark"><img src="/printkings-website/images/brand/print-kings-logo.webp" alt="Print Kings" /></Link><p className="footer-tagline">Make your brand<br />impossible to miss.</p></div><div><p className="footer-label">Explore</p><Link to="/shop">Shop products</Link><Link to="/packages">Packages</Link><Link to="/solutions">Solutions</Link></div><div><p className="footer-label">Build</p><Link to="/build-your-setup">Build your setup</Link><Link to="/quote">Request a quote</Link><Link to="/cart">Cart</Link></div><div><p className="footer-label">Print Kings</p><p className="footer-copy">Branded outdoor equipment and promotional setups for businesses, events and activations.</p></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Print Kings</span><span>South Africa</span></div></footer>;
+  return <footer className="site-footer"><div className="footer-grid"><div><Link to="/" className="wordmark footer-mark"><img src="/printkings-website/brand/print-kings-logo.svg" alt="Print Kings" /></Link><p className="footer-tagline">Make your brand<br />impossible to miss.</p></div><div><p className="footer-label">Explore</p><Link to="/shop">Shop products</Link><Link to="/packages">Packages</Link><Link to="/solutions">Solutions</Link></div><div><p className="footer-label">Build</p><Link to="/build-your-setup">Build your setup</Link><Link to="/quote">Request a quote</Link><Link to="/cart">Cart</Link></div><div><p className="footer-label">Print Kings</p><p className="footer-copy">Branded outdoor equipment and promotional setups for businesses, events and activations.</p></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Print Kings</span><span>South Africa</span></div></footer>;
 }
 
 function Storefront() {

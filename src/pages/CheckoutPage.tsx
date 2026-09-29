@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { FormEvent } from "react";
 import { Link } from "react-router-dom";
-import { supabase } from "../lib/supabase";
+import { ensurePublicSession, supabase } from "../lib/supabase";
 import { useCart } from "../lib/cart";
 import type { Json } from "../lib/database.types";
 
@@ -27,6 +27,7 @@ export function CheckoutPage() {
   useEffect(() => {
     let active = true;
     (async () => {
+      await ensurePublicSession();
       const { data, error } = await supabase.auth.getSession();
       if (!active) return;
       if (error) { setGuestAuthError("We could not start your secure checkout session."); setSession(false); return; }
@@ -35,7 +36,7 @@ export function CheckoutPage() {
       if (!active) return;
       if (anonymousError) { setGuestAuthError("Guest checkout is not enabled on this store yet. Please try again shortly."); setSession(false); } else setSession(true);
     })();
-    supabase.from("shipping_methods").select("id,slug,name").eq("status", "ACTIVE").order("name").then(({ data, error: queryError }) => { if (!queryError) setMethods(data ?? []); });
+    ensurePublicSession().then(()=>supabase.from("shipping_methods").select("id,slug,name").eq("status", "ACTIVE").order("name")).then(({ data, error: queryError }) => { if (!queryError) setMethods(data ?? []); });
     return () => { active = false; };
   }, []);
 

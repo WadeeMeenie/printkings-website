@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const useCases = [["Markets", "market", "Stand out in the crowd."], ["Events", "events", "Own the room."], ["Sports & outdoor", "sports", "Show up together."], ["Corporate", "corporate", "Make the launch count."], ["Roadshows", "roadshows", "Take your brand further."], ["Retail", "retail", "Be impossible to miss."]];
+const useCases = [["Markets", "markets", "Stand out in the crowd."], ["Events", "events", "Own the room."], ["Sports & outdoor", "sports", "Show up together."], ["Corporate", "corporate", "Make the launch count."], ["Roadshows", "roadshows", "Take your brand further."], ["Retail", "retail", "Be impossible to miss."]];
 const principles = [["01", "Get noticed", "High-impact structures and displays that make your brand the first thing people see."], ["02", "Build your setup", "Start with one product or configure a complete presence around the way you show up."], ["03", "Make it yours", "Your brand, your colours, your space. Add the finishing details that make it unmistakably yours."], ["04", "Show up professionally", "Reliable, considered equipment for the moments where your brand has to perform."]];
 
 export function HomePage() {

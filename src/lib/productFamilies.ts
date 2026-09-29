@@ -7,7 +7,7 @@ export function productFamilyKey(name: string | null | undefined): string {
   value = value.replace(/\b\d+(?:\.\d+)?\s*[x×]\s*\d+(?:\.\d+)?(?:\s*[x×]\s*\d+(?:\.\d+)?)?\s*(?:m|mm)?\b/g, " ");
   value = value.replace(/\b\d+(?:\.\d+)?\s*m\b/g, " ");
   value = value.replace(/\b\d+(?:\.\d+)?\s*mm\b/g, " ");
-  value = value.replace(/\b(single|double)\b/g, " ");
+  value = value.replace(/\b(single|double)\b(?!-?\s*sided)/g, " ");
   if (/^lollipop\b/.test(value)) value = value.replace(/\bA[1-4]\b/gi, " ");
   if (/^directors chair\b/.test(value)) value = value.replace(/\b(black|standard)\b/g, " ");
   return value.replace(/[^a-z0-9]+/g, " ").trim().replace(/\s+/g, "-");
@@ -19,7 +19,7 @@ export function productFamilyName(name: string | null | undefined): string {
     .replace(/\b\d+(?:\.\d+)?\s*[x×]\s*\d+(?:\.\d+)?(?:\s*[x×]\s*\d+(?:\.\d+)?)?\s*(?:m|mm)?\b/gi, "")
     .replace(/\b\d+(?:\.\d+)?\s*m\b/gi, "")
     .replace(/\b\d+(?:\.\d+)?\s*mm\b/gi, "")
-    .replace(/\b(single|double)\b/gi, "")
+    .replace(/\b(single|double)\b(?!-?\s*sided)/gi, "")
     .replace(/\s+/g, " ")
     .trim();
   if (/^lollipop\b/i.test(value)) value = value.replace(/\bA[1-4]\b/gi, "").replace(/\s+/g, " ").trim();

@@ -12,7 +12,7 @@ const money=(c:number|null)=>c===null?"Quote":new Intl.NumberFormat("en-ZA",{sty
 
 export function ProductPage(){
   const {categorySlug,variantSlug}=useParams(),navigate=useNavigate(),{add}=useCart();
-  const [item,setItem]=useState<Item|null>(null),[familyItems,setFamilyItems]=useState<Item[]>([]),[images,setImages]=useState<Image[]>([]),[related,setRelated]=useState<Item[]>([]),[qty,setQty]=useState(1),[loading,setLoading]=useState(true),[error,setError]=useState("");
+  const [item,setItem]=useState<Item|null>(null),[familyItems,setFamilyItems]=useState<Item[]>([]),[images,setImages]=useState<Image[]>([]),[related,setRelated]=useState<Item[]>([]),[qty,setQty]=useState(1),[added,setAdded]=useState(false),[loading,setLoading]=useState(true),[error,setError]=useState("");
 
   useEffect(()=>{
     let alive=true;
@@ -32,7 +32,7 @@ export function ProductPage(){
       ]);
       const counts=new Map<string,number>();for(const x of allImgs??[]){if(x.storage_path)counts.set(x.storage_path,(counts.get(x.storage_path)??0)+1)}
       const uniqueImgs=(imgs??[]).filter(x=>(x.storage_path||x.external_url)&&(!x.storage_path||counts.get(x.storage_path)===1)&&resolveMappedProductImage(x.storage_path,x.external_url));
-      if(alive){setFamilyItems(siblings.sort((a,b)=>(a.variant_name??"").localeCompare(b.variant_name??"")));setImages(uniqueImgs);setRelated(rel??[]);setLoading(false)}
+      if(alive){const seenFamilies=new Set<string>();const uniqueRelated=(rel??[]).filter(candidate=>{const key=productFamilyKey(candidate.product_name??candidate.variant_name);if(key===productFamilyKey(data.product_name??data.variant_name)||seenFamilies.has(key))return false;seenFamilies.add(key);return true}).slice(0,4);setFamilyItems(siblings.sort((a,b)=>(a.variant_name??"").localeCompare(b.variant_name??"")));setImages(uniqueImgs);setRelated(uniqueRelated);setLoading(false)}
     })();
     return()=>{alive=false}
   },[categorySlug,variantSlug]);
@@ -67,7 +67,7 @@ export function ProductPage(){
         <div className="purchase-box">
           <p className="eyebrow">Configure your product</p><h2>WHAT YOU GET</h2><p>{item.description??"Professional Print Kings equipment configured for branded use."}</p>
           <div className="purchase-row"><div className="quantity-control"><button aria-label="Decrease quantity" onClick={()=>setQty(Math.max(1,qty-1))} disabled={item.price_cents===null}>−</button><span>{qty}</span><button aria-label="Increase quantity" onClick={()=>setQty(qty+1)} disabled={item.price_cents===null}>+</button></div><strong>{item.price_cents===null?"Quote required":money((item.price_cents??0)*qty)}</strong></div>
-          {item.price_cents===null?<Link to="/quote" className="button button-dark full-button">Request a quote <span>↗</span></Link>:<button onClick={()=>add(catalogueToCart(item),qty)} className="button button-dark full-button">Add to cart <span>↗</span></button>}
+          {item.price_cents===null?<Link to="/quote" className="button button-dark full-button">Request a quote <span>↗</span></Link>:<button onClick={()=>{add(catalogueToCart(item),qty);setAdded(true);window.setTimeout(()=>setAdded(false),2500)}} className="button button-dark full-button" aria-live="polite">{added?"Added to cart ✓":"Add to cart"} <span>↗</span></button>}
           <Link to="/build-your-setup" className="button button-light full-button">Build a complete setup <span>↗</span></Link>
         </div>
         <div className="detail-notes"><div><strong>Branding</strong><span>Availability is configuration-dependent; final artwork requirements are confirmed during the order process.</span></div><div><strong>Need a custom setup?</strong><Link to="/build-your-setup">Use the setup builder ↗</Link></div></div>
