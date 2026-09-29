@@ -19,6 +19,7 @@ export function productFamilyName(name: string | null | undefined): string {
     .replace(/\b\d+(?:\.\d+)?\s*[x×]\s*\d+(?:\.\d+)?(?:\s*[x×]\s*\d+(?:\.\d+)?)?\s*(?:m|mm)?\b/gi, "")
     .replace(/\b\d+(?:\.\d+)?\s*m\b/gi, "")
     .replace(/\b\d+(?:\.\d+)?\s*mm\b/gi, "")
+    .replace(/\b(single|double)\b/gi, "")
     .replace(/\s+/g, " ")
     .trim();
   if (/^lollipop\b/i.test(value)) value = value.replace(/\bA[1-4]\b/gi, "").replace(/\s+/g, " ").trim();
