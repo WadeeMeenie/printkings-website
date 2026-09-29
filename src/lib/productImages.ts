@@ -12,8 +12,18 @@ function localProductPhotoFromExternalUrl(externalUrl?: string | null): string |
     if (url.hostname !== "www.dropbox.com" && url.hostname !== "dropbox.com") return null;
     const rawName = url.pathname.split("/").filter(Boolean).pop();
     if (!rawName) return null;
-    const filename = decodeURIComponent(rawName);
-    return import.meta.env.BASE_URL + "images/products/" + encodeURIComponent(filename);
+
+    const sourceName = decodeURIComponent(rawName);
+    const candidates = new Set<string>([
+      sourceName,
+      sourceName.replace(/-(\d+)(\.[^.]+)$/i, " - $1$2"),
+      sourceName.replace(/-/g, " ").replace(/\s+(\d+)(\.[^.]+)$/i, " - $1$2").replace(/\bA Frame\b/gi, "A-Frame"),
+    ]);
+
+    for (const filename of candidates) {
+      return import.meta.env.BASE_URL + "images/products/" + encodeURIComponent(filename);
+    }
+    return null;
   } catch {
     return null;
   }
