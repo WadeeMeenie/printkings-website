@@ -1,5 +1,6 @@
 import { useEffect,useMemo,useState } from "react";
 import { Link,useNavigate,useParams } from "react-router-dom";
+import "../product-gallery-fix.css";
 import { resolveMappedProductImage } from "../lib/productImages";
 import { compareCatalogueVariants,productFamilyKey,productFamilyName,variantChoiceLabel } from "../lib/productFamilies";
 import { supabase } from "../lib/supabase";
@@ -29,7 +30,7 @@ export function ProductPage(){
         supabase.from("product_images").select("id,storage_path,external_url,alt_text,is_primary,sort_order").eq("variant_id",data.variant_id as string).eq("approved",true).order("is_primary",{ascending:false}).order("sort_order"),
         supabase.from("public_catalogue").select("*").eq("category_active",true).eq("category_slug",data.category_slug??categorySlug).neq("variant_id",data.variant_id as string).limit(4),
       ]);
-      const uniqueImgs=(imgs??[]).filter(x=>(x.storage_path||x.external_url)&&resolveMappedProductImage(x.storage_path,x.external_url));
+      const uniqueImgs=(imgs??[]).filter(x=>resolveMappedProductImage(x.storage_path,x.external_url));
       if(alive){const seenFamilies=new Set<string>();const uniqueRelated=(rel??[]).filter(candidate=>{const key=productFamilyKey(candidate.product_name??candidate.variant_name);if(key===productFamilyKey(data.product_name??data.variant_name)||seenFamilies.has(key))return false;seenFamilies.add(key);return true}).slice(0,4);setFamilyItems(siblings.sort(compareCatalogueVariants));setImages(uniqueImgs);setRelated(uniqueRelated);setLoading(false)}
     })();
     return()=>{alive=false}
